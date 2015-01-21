@@ -31,6 +31,13 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="res/css/style.css" />
         <script src="js/game.js"></script>
+        <script type="text/javascript">
+            window.addEventListener('load', function() {
+                document.getElementById('game').addEventListener('touchmove', function(e) {
+                    e.preventDefault();
+                }, false);
+            }, false);
+        </script>
         <title>TEC</title>
     </head>
     <body>
@@ -41,6 +48,7 @@
                 </div>
                 <div data-role="content">
                     <a href="#about" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">About TEC</a>
+                    <a href="#resources" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">Resources</a>
                     <a href="#inst" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">How to Play</a>
                     <a href="#game" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">Play Game!</a>
                 </div>
@@ -52,6 +60,16 @@
                 </div>
                 <div data-role="content">
                     <p>About and Disclaimer Info goes here!</p>
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-carat-l ui-corner-all ui-btn-icon-left">Back</a>
+                </div>
+            </div>
+            <div data-role="page" id="resources" data-theme="b">
+                <div data-role="header">
+                    <h1>Resources</h1>
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
+                </div>
+                <div data-role="content">
+                    <p>TEC resources go here!</p>
                     <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-carat-l ui-corner-all ui-btn-icon-left">Back</a>
                 </div>
             </div>
