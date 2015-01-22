@@ -37,7 +37,3 @@ $(document).on('pagebeforeshow', '#inst2', function(){
     $('.ui-block-a, .ui-block-b').addClass('inst_mod');
 });
 
-$('div#game').on('touchmove', function(evt) {
-    evt.preventDefault;
-});
-
