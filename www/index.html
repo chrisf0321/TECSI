@@ -139,11 +139,26 @@
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+    //this must come before jquery is loaded
+    $(document).bind("mobileinit", function(){
+        "use strict";
+        $.mobile.autoInitializePage = false;
+    });
+    </script>
 	<script src="js/jquery-1.11.2.min.js"></script>
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/game.js"></script>
         <script type="text/javascript">
-            app.initialize();
-        </script>
+    //called on phone when device is full initialized
+    document.addEventListener("deviceready",function() {
+        "use strict";
+        //phone init code that manipulates the DOM...
+        $.mobile.initializePage();
+
+    });
+
+
+    </script>
     </body>
 </html>
