@@ -97,6 +97,7 @@ var eArry = ["img/e1.jpg", "img/e2.jpg", "img/e3.jpg", "img/e4.jpg"];
 var matchArry = [];
 
 function showMatch() {
+    
     $("#mImg1").attr('src', matchArry[0]);
     $("#mImg2").attr('src', matchArry[1]);
     $("#mImg3").attr('src', matchArry[2]);
@@ -125,17 +126,17 @@ Array.prototype.shuffle = function() {
 function matchGen() {
     var mCnt = 0;
     
-    matchArry.push(aArry[(Math.floor((Math.random() * aArry.length) + 1))]);
-    matchArry.push(dArry[(Math.floor((Math.random() * dArry.length) + 1))]);
-    matchArry.push(bArry[(Math.floor((Math.random() * bArry.length) + 1))]);
-    matchArry.push(eArry[(Math.floor((Math.random() * eArry.length) + 1))]);
-    matchArry.push(cArry[(Math.floor((Math.random() * cArry.length) + 1))]);
+    matchArry[0] = aArry[(Math.floor((Math.random() * aArry.length) + 1))];
+    matchArry[1] = dArry[(Math.floor((Math.random() * dArry.length) + 1))];
+    matchArry[2] = bArry[(Math.floor((Math.random() * bArry.length) + 1))];
+    matchArry[3] = eArry[(Math.floor((Math.random() * eArry.length) + 1))];
+    matchArry[4] = cArry[(Math.floor((Math.random() * cArry.length) + 1))];
     
     while(mCnt < 1) {
         var cImg = cArry[(Math.floor((Math.random() * cArry.length) + 1))];
 
         if (cImg !== matchArry[4]) {
-            matchArry.push(cImg);
+            matchArry[5] = cImg;
             mCnt++;
         }
     }
