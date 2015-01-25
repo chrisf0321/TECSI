@@ -5,6 +5,10 @@ h2{
 
 img{
 	width:100%;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
 }
 
 .thumbnail{
@@ -14,6 +18,16 @@ img{
 
 #gallery img{
 	height:100%;
+}
+
+.ui-bar {
+    padding: 0px;
+}
+
+.ui-grid-a {
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 0px;
 }
 
 .ui-grid-c {
