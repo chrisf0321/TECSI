@@ -10,7 +10,7 @@ $(document).on('pagebeforeshow', '#matches', function() {
             $('.ui-grid-a').css({'padding-left': '60px', 'padding-right': '60px', 'padding-top': '0px'});
         }
     }
-    matchGen();
+ 
     showMatch();   
     imgDelay();
 });
