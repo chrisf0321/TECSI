@@ -1,4 +1,5 @@
 $(document).on('pagebeforeshow', '#matches', function() {
+    $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
     $('img').css({'opacity': '0'});
     if ($(this).height() > $(this).width()) {
         $('.ui-block-a, .ui-block-b').addClass('full_width');
@@ -10,13 +11,20 @@ $(document).on('pagebeforeshow', '#matches', function() {
             $('.ui-grid-a').css({'padding-left': '60px', 'padding-right': '60px', 'padding-top': '0px'});
         }
     }
-    matchGen();  
+    matchGen();
     imgDelay();
+    
 });
 
 
 $(document).on('pagebeforeshow', '#game', function () {
     $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
+    gameCnt = 0;
+    imgCnt = 0;
+    aCnt = 0;
+    bCnt = 0;
+    cCnt = 0;
+    hide = false;
     $('#blk5, #blk6, #blk7, #blk8').hide();
     $('img').css({'opacity': '0'});
     if ($(this).height() > $(this).width()) {
@@ -60,8 +68,15 @@ $(document).on('pagebeforeshow', '#inst2', function(){
 });
 
 var gamCnt = 0;
-
+var imgCnt = 0;
+var aCnt = 0;
+var bCnt = 0;
+var cCnt = 0;
 var timer;
+var hide = false;
+var choice1;
+var choice2;
+var prevSel;
 
 var aArry = ["img/a1.jpg", "img/a2.jpg", "img/a3.jpg", "img/a4.jpg", "img/a5.jpg", "img/a6.jpg", "img/a7.jpg",
             "img/a8.jpg", "img/a9.jpg", "img/a10.jpg", "img/a11.jpg", "img/a12.jpg", "img/a13.jpg", "img/a14.jpg",
@@ -94,6 +109,7 @@ var dArry = ["img/d1.jpg", "img/d2.jpg", "img/d3.jpg", "img/d4.jpg", "img/d5.jpg
 var eArry = ["img/e1.jpg", "img/e2.jpg", "img/e3.jpg", "img/e4.jpg"];
 
 var matchArry = [];
+var trialMtch = [];
 
 function showMatch() {
 
@@ -103,6 +119,7 @@ function showMatch() {
     $("#mImg4").attr('src', matchArry[3]);
     $("#mImg5").attr('src', matchArry[4]);
     $("#mImg6").attr('src', matchArry[5]);
+    
 }
 
 function imgDelay() {
@@ -122,23 +139,17 @@ Array.prototype.shuffle = function() {
     }
 };
 
-function checkMatchArry(ndx) {
-    if(ndx == 'undefined') {
-        matchGen();
-    }
-}
-
 function matchGen() {
     var mCnt = 0;
     
-    matchArry[0] = aArry[(Math.floor((Math.random() * aArry.length) + 1))];
-    matchArry[1] = dArry[(Math.floor((Math.random() * dArry.length) + 1))];
-    matchArry[2] = bArry[(Math.floor((Math.random() * bArry.length) + 1))];
-    matchArry[3] = eArry[(Math.floor((Math.random() * eArry.length) + 1))];
-    matchArry[4] = cArry[(Math.floor((Math.random() * cArry.length) + 1))];
+    matchArry[0] = aArry[Math.floor(Math.random() * aArry.length)];
+    matchArry[1] = dArry[Math.floor(Math.random() * dArry.length)];
+    matchArry[2] = bArry[Math.floor(Math.random() * bArry.length)];
+    matchArry[3] = eArry[Math.floor(Math.random() * eArry.length)];
+    matchArry[4] = cArry[Math.floor(Math.random() * cArry.length)];
     
     while(mCnt < 1) {
-        var cImg = cArry[(Math.floor((Math.random() * cArry.length) + 1))];
+        var cImg = cArry[Math.floor(Math.random() * cArry.length)];
 
         if (cImg !== matchArry[4]) {
             matchArry[5] = cImg;
@@ -150,15 +161,252 @@ function matchGen() {
 }
 
 function imgSel() {
+    var imgArry = [];
+    trialMtch = [];
+    var success = 0;
     
-    var i = 0;
+    if (gamCnt === 15) {
+        hide = true;
+    }
+    else if (gamCnt === 30) {
+        hide = false;
+        $('#blk5, #blk6, #blk7, #blk8').show();
+    }
+    else if (gamCnt === 45) {
+        hide = true;
+    }
     
-    while (i < 4) {
-        $("#img1").attr('src', bArry[(Math.floor((Math.random() * 40) + 1))]);
-        $("#img2").attr('src', bArry[(Math.floor((Math.random() * 40) + 1))]);
-        $("#img3").attr('src', bArry[(Math.floor((Math.random() * 40) + 1))]);
-        $("#img4").attr('src', bArry[(Math.floor((Math.random() * 40) + 1))]);
+    if (gamCnt < 60) {
+        while (success === 0) {
+            var num = Math.floor(Math.random() * 3);
         
-        i++;
+            if (num === 0 && aCnt < 20) {
+                aList(imgArry);
+                success = 1;
+            }
+            else if (num === 1 && bCnt < 20) {
+                bList(imgArry);
+                success = 1;
+            }
+            else if (num === 2 && cCnt < 20) {
+                cList(imgArry);
+                success = 1;
+            }
+        }
+        imgDelay();
+    }
+    else {
+        $.mobile.changePage("#finish", {transistion: "pop"});
+        resetGame();
+    }
+}
+
+function resetGame() {
+    gamCnt = 0;
+    imgCnt = 0;
+    aCnt = 0;
+    bCnt = 0;
+    cCnt = 0;
+}
+
+function aList(arry) {
+    aCnt++;
+    var tempArry = [];
+    var aNdx;
+    var img;
+    
+    if (gamCnt < 30) {
+        aNdx = 2;
+    }
+    else {
+        aNdx = 6;
+    }
+ 
+    tempArry = aArry.concat(dArry, cArry);
+    
+    arry.push(matchArry[0]);
+    arry.push(matchArry[1]);
+    
+    for (i = 0; i < aNdx; i++) {
+        var loopCntrl = 0;
+        while (loopCntrl === 0) {
+            img = tempArry[Math.floor(Math.random() * tempArry.length)];
+            if ($.inArray(img, arry) === -1 && $.inArray(img, matchArry) === -1) {
+                arry.push(img);
+                loopCntrl = 1;
+            }
+        }       
+    }
+
+    arry.shuffle();
+    trialMtch[0] = $.inArray(matchArry[0], arry);
+    trialMtch[1] = $.inArray(matchArry[1], arry);
+    
+    if (gamCnt < 30) {
+        $("#img1").attr('src', arry[0]);
+        $("#img2").attr('src', arry[1]);
+        $("#img3").attr('src', arry[2]);
+        $("#img4").attr('src', arry[3]);
+    }
+    else {
+        $("#img1").attr('src', arry[0]);
+        $("#img2").attr('src', arry[1]);
+        $("#img3").attr('src', arry[2]);
+        $("#img4").attr('src', arry[3]);
+        $("#img5").attr('src', arry[4]);
+        $("#img6").attr('src', arry[5]);
+        $("#img7").attr('src', arry[6]);
+        $("#img8").attr('src', arry[7]);
+    }    
+}
+
+function bList(arry) {
+    bCnt++;
+    var tempArry = [];
+    var bNdx;
+    var img;
+    
+    if (gamCnt < 30) {
+        bNdx = 2;
+    }
+    else {
+        bNdx = 6;
+    }
+
+    tempArry = bArry.concat(eArry, cArry);
+    
+    arry.push(matchArry[2]);
+    arry.push(matchArry[3]);
+    
+    for (i = 0; i < bNdx; i++) {
+        var loopCntrl = 0;
+        while (loopCntrl === 0) {
+            img = tempArry[Math.floor(Math.random() * tempArry.length)];
+            if ($.inArray(img, arry) === -1 && $.inArray(img, matchArry) === -1) {
+                arry.push(img);
+                loopCntrl = 1;
+            }
+        }       
+    }
+
+    arry.shuffle();
+    trialMtch[0] = $.inArray(matchArry[2], arry);
+    trialMtch[1] = $.inArray(matchArry[3], arry);
+    
+    if (gamCnt < 30) {
+        $("#img1").attr('src', arry[0]);
+        $("#img2").attr('src', arry[1]);
+        $("#img3").attr('src', arry[2]);
+        $("#img4").attr('src', arry[3]);
+    }
+    else {
+        $("#img1").attr('src', arry[0]);
+        $("#img2").attr('src', arry[1]);
+        $("#img3").attr('src', arry[2]);
+        $("#img4").attr('src', arry[3]);
+        $("#img5").attr('src', arry[4]);
+        $("#img6").attr('src', arry[5]);
+        $("#img7").attr('src', arry[6]);
+        $("#img8").attr('src', arry[7]);
+    }    
+}
+
+function cList(arry) {
+    cCnt++;
+    var tempArry = [];
+    var cNdx;
+    var img;
+    
+    if (gamCnt < 30) {
+        cNdx = 2;
+    }
+    else {
+        cNdx = 6;
+    }
+
+    tempArry = cArry;
+    
+    arry.push(matchArry[4]);
+    arry.push(matchArry[5]);
+    
+    for (i = 0; i < cNdx; i++) {
+        var loopCntrl = 0;
+        while (loopCntrl === 0) {
+            img = tempArry[Math.floor(Math.random() * tempArry.length)];
+            if ($.inArray(img, arry) === -1 && $.inArray(img, matchArry) === -1) {
+                arry.push(img);
+                loopCntrl = 1;
+            }
+        }       
+    }
+
+    arry.shuffle();
+    trialMtch[0] = $.inArray(matchArry[4], arry);
+    trialMtch[1] = $.inArray(matchArry[5], arry);
+    
+    if (gamCnt < 30) {
+        $("#img1").attr('src', arry[0]);
+        $("#img2").attr('src', arry[1]);
+        $("#img3").attr('src', arry[2]);
+        $("#img4").attr('src', arry[3]);
+    }
+    else {
+        $("#img1").attr('src', arry[0]);
+        $("#img2").attr('src', arry[1]);
+        $("#img3").attr('src', arry[2]);
+        $("#img4").attr('src', arry[3]);
+        $("#img5").attr('src', arry[4]);
+        $("#img6").attr('src', arry[5]);
+        $("#img7").attr('src', arry[6]);
+        $("#img8").attr('src', arry[7]);
+    }    
+}
+
+function countClick(sel) {
+    imgCnt++;
+    
+    if (imgCnt === 1) {
+        prevSel = sel;
+        choice1 = sel;
+        
+        if (hide) {
+            if (sel !== 0) {
+                $('#img1').css({'opacity': '0'});
+            }
+            if (sel !== 1) {
+                $('#img2').css({'opacity': '0'});
+            }
+            if (sel !== 2) {
+                $('#img3').css({'opacity': '0'});
+            }
+            if (sel !== 3) {
+                $('#img4').css({'opacity': '0'});
+            }
+            if (sel !== 4) {
+                $('#img5').css({'opacity': '0'});
+            }
+            if (sel !== 5) {
+                $('#img6').css({'opacity': '0'});
+            }
+            if (sel !== 6) {
+                $('#img7').css({'opacity': '0'});
+            }
+            if (sel !== 7) {
+                $('#img8').css({'opacity': '0'});
+            }
+        }
+        return false;
+    }
+    else if (imgCnt === 2) {
+        if (sel !== prevSel) {
+            choice2 = sel;
+            gamCnt++;
+            imgCnt = 0;
+            $('img').css({'opacity': '0'});
+            imgSel();
+        }
+        else {
+            imgCnt--;
+        }
     }
 }

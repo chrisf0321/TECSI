@@ -109,6 +109,16 @@
                     <a href="#inst2" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-carat-l ui-corner-all ui-btn-icon-left">Back</a>
                 </div>
             </div>
+            <div data-role="page" id="finish" data-theme="b">
+                <div data-role="header">
+                    <h1>Finished!</h1>
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
+                </div>
+                <div data-role="content">
+                    <p>Finish screen goes here!</p>
+                    <a href="#home" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">Continue</a>
+                </div>
+            </div>
             <div data-role="page" id="matches" data-theme="b">
                 <div data-role="header">
                     <h1>Matches</h1>
@@ -153,28 +163,44 @@
                     <div data-role="content">
                         <div id="gallery" class="ui-grid-c">
                             <div id="blk1" class="ui-block-a">
-                                <img id="img1" src="" />
+                                <a onclick="if(!countClick(0)) {return false;}">
+                                   <img id="img1" />
+                                </a>
                             </div>
                             <div id="blk2" class="ui-block-b">
-                                <img id="img2" src="" />
+                                <a onclick="if(!countClick(1)) {return false;}">
+                                    <img id="img2" />
+                                </a>
                             </div>
                             <div id="blk3" class="ui-block-c">
-                                <img id="img3" src="" />
+                                <a onclick="if(!countClick(2)) {return false;}">
+                                    <img id="img3" />
+                                </a>
                             </div>
                             <div id="blk4" class="ui-block-d">
-                                <img id="img4" src="" />
+                                <a onclick="if(!countClick(3)) {return false;}">
+                                    <img id="img4" />
+                                </a>
                             </div>
                             <div id="blk5" class="ui-block-a">
-                                <img id="img5" src="" />
+                                <a onclick="if(!countClick(4)) {return false;}">
+                                    <img id="img5" />
+                                </a>
                             </div>
                             <div id="blk6" class="ui-block-b">
-                                <img id="img6" src="" />
+                                <a onclick="if(!countClick(5)) {return false;}">
+                                    <img id="img6" />
+                                </a>
                             </div>
                             <div id="blk7" class="ui-block-c">
-                                <img id="img7" src="" />
+                                <a onclick="if(!countClick(6)) {return false;}">
+                                    <img id="img7" />
+                                </a>
                             </div>
                             <div id="blk8" class="ui-block-d">
-                                <img id="img8" src="" />
+                                <a onclick="if(!countClick(7)) {return false;}">
+                                    <img id="img8" />
+                                </a>
                             </div>
                         </div>
                     </div>
