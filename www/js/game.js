@@ -123,6 +123,12 @@ Array.prototype.shuffle = function() {
     }
 };
 
+function checkMatchArry(ndx) {
+    if(ndx == 'undefined') {
+        matchGen();
+    }
+}
+
 function matchGen() {
     var mCnt = 0;
     
@@ -140,6 +146,8 @@ function matchGen() {
             mCnt++;
         }
     }
+    
+    matchArry.forEach(checkMatchArry);
 }
 
 function imgSel() {
