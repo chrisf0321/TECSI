@@ -196,7 +196,7 @@ function imgSel() {
         imgDelay();
     }
     else {
-        $.mobile.changePage("#finish", {transistion: "slide"});
+        $.mobile.changePage("#finish", {transition: "pop"});
         resetGame();
     }
 }
