@@ -10,8 +10,7 @@ $(document).on('pagebeforeshow', '#matches', function() {
             $('.ui-grid-a').css({'padding-left': '60px', 'padding-right': '60px', 'padding-top': '0px'});
         }
     }
- 
-    showMatch();   
+    matchGen();  
     imgDelay();
 });
 
@@ -97,7 +96,7 @@ var eArry = ["img/e1.jpg", "img/e2.jpg", "img/e3.jpg", "img/e4.jpg"];
 var matchArry = [];
 
 function showMatch() {
-    
+
     $("#mImg1").attr('src', matchArry[0]);
     $("#mImg2").attr('src', matchArry[1]);
     $("#mImg3").attr('src', matchArry[2]);
@@ -147,7 +146,7 @@ function matchGen() {
         }
     }
     
-    matchArry.forEach(checkMatchArry);
+    showMatch();
 }
 
 function imgSel() {
