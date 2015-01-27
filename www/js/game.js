@@ -1,7 +1,3 @@
-window.addEventListener('load', function() {
-        new FastClick(document.body);
-    }, false);
-
 $(document).on('pagebeforeshow', '#matches', function() {
     $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
     $('img').css({'opacity': '0'});
@@ -22,6 +18,39 @@ $(document).on('pagebeforeshow', '#matches', function() {
 
 
 $(document).on('pagebeforeshow', '#game', function () {
+    $("#l1").bind('vclick', function(e) {
+        e.preventDefault();
+        countClick(0);
+    });
+    $("#l2").bind('vclick', function(e) {
+        e.preventDefault();
+        countClick(1);
+    });
+    $("#l3").bind('vclick', function(e) {
+        e.preventDefault();
+        countClick(2);
+    });
+    $("#l4").bind('vclick', function(e) {
+        e.preventDefault();
+        countClick(3);
+    });
+    $("#l5").bind('vclick', function(e) {
+        e.preventDefault();
+        countClick(4);
+    });
+    $("#l6").bind('vclick', function(e) {
+        e.preventDefault();
+        countClick(5);
+    });
+    $("#l7").bind('vclick', function(e) {
+        e.preventDefault();
+        countClick(6);
+    });
+    $("#l8").bind('vclick', function(e) {
+        e.preventDefault();
+        countClick(7);
+    });
+
     $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
     gameCnt = 0;
     imgCnt = 0;
@@ -418,12 +447,9 @@ function countClick(sel) {
 }
 
 function imgAnimate() {
-    //window.alert(trialMatch[0]);
     var match1 = trialMtch[0];
     var match2 = trialMtch[1];
-    var aniComplete = false;
-    
-    
+        
     if (match1 === 0 || match2 === 0) {
         $('#img1').css({'opacity': '100'});
     }
