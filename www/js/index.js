@@ -21,12 +21,10 @@ $(document).one("mobileinit", function(){
 /**
 * Run your App Logic only when both frameworks have loaded
 */
-$.when(gapReady, jqmReady).then(appLogic);
+$.when(gapReady, jqmReady).then(appLogic());
 
 // App Logic -- add fastclick and hide splash screen.
-function appLogic() {
-    FastClick.attach(document.body);
-    
+function appLogic() {   
     setTimeout(function() {
         navigator.splashscreen.hide();
     }, 2000);

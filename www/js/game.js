@@ -1,3 +1,7 @@
+window.addEventListener('load', function() {
+        new FastClick(document.body);
+    }, false);
+
 $(document).on('pagebeforeshow', '#matches', function() {
     $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
     $('img').css({'opacity': '0'});
