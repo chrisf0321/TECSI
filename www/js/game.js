@@ -37,6 +37,9 @@ $(document).on('pagebeforeshow', '#game', function () {
             $('.ui-grid-c').css({'padding-left': '60px', 'padding-right': '60px', 'padding-top': '0px'});
         }
     }
+    else {
+        $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').removeClass('full_width');
+    }
     
     imgSel();
     imgDelay();
@@ -402,11 +405,73 @@ function countClick(sel) {
             choice2 = sel;
             gamCnt++;
             imgCnt = 0;
-            $('img').css({'opacity': '0'});
-            imgSel();
+            imgAnimate();
         }
         else {
             imgCnt--;
         }
     }
+}
+
+function imgAnimate() {
+    //window.alert(trialMatch[0]);
+    var match1 = trialMtch[0];
+    var match2 = trialMtch[1];
+    var aniComplete = false;
+    
+    
+    if (match1 === 0 || match2 === 0) {
+        $('#img1').css({'opacity': '100'});
+    }
+    else {
+        $('#img1').css({'opacity': '0'});
+    }
+    if (match1 === 1 || match2 === 1) {
+        $('#img2').css({'opacity': '100'});
+    }
+    else {
+        $('#img2').css({'opacity': '0'});
+    }
+    if (match1 === 2 || match2 === 2) {
+        $('#img3').css({'opacity': '100'});
+    }
+    else {
+        $('#img3').css({'opacity': '0'});
+    }
+    if (match1 === 3 || match2 === 3) {
+        $('#img4').css({'opacity': '100'});
+    }
+    else {
+        $('#img4').css({'opacity': '0'});
+    }
+    if (match1 === 4 || match2 === 4) {
+        $('#img5').css({'opacity': '100'});
+    }
+    else {
+        $('#img5').css({'opacity': '0'});
+    }
+    if (match1 === 5 || match2 === 5) {
+        $('#img6').css({'opacity': '100'});
+    }
+    else {
+        $('#img6').css({'opacity': '0'});
+    }
+    if (match1 === 6 || match2 === 6) {
+        $('#img7').css({'opacity': '100'});
+    }
+    else {
+        $('#img7').css({'opacity': '0'});
+    }
+    if (match1 === 7 || match2 === 7) {
+        $('#img8').css({'opacity': '100'});
+    }
+    else {
+        $('#img8').css({'opacity': '0'});
+    }
+    
+    $('img').animate({
+        opacity: 0
+    }, 1000).promise().done(function() {
+        imgSel();
+    });
 }

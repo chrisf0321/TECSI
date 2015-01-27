@@ -23,8 +23,10 @@ $(document).one("mobileinit", function(){
 */
 $.when(gapReady, jqmReady).then(appLogic);
 
-// App Logic
+// App Logic -- add fastclick and hide splash screen.
 function appLogic() {
+    FastClick.attach(document.body);
+    
     setTimeout(function() {
         navigator.splashscreen.hide();
     }, 2000);
