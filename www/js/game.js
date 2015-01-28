@@ -44,9 +44,7 @@ var eArry = ["img/e1.jpg", "img/e2.jpg", "img/e3.jpg", "img/e4.jpg"];
 var matchArry = [];
 var trialMtch = [];
 
-$("a").on(TOUCH_START, function(e) {
-    e.preventDefault();
-    e.stopPropagation();
+$("a").on(TOUCH_START, function() {
     var linkID = $(this).attr('id');
     
     if (linkID) {
@@ -224,7 +222,6 @@ function resetGame() {
     bCnt = 0;
     cCnt = 0;
     hide = false;
-    window.alert('reset');
 }
 
 function aList(arry) {
