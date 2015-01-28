@@ -51,6 +51,13 @@ $("a").on(TOUCH_START, function() {
         var num = parseInt(linkID);
         countClick(num);
     }
+    else {
+        var page = $(this).attr('href');
+        var trans = $(this).attr('href');
+        var direct = $(this).attr('href');
+        $.mobile.changePage(page, {transition: trans,
+                                   direction: direct});
+    }
 });
 
 $(document).on('pagebeforeshow', '#matches', function() {
