@@ -40,7 +40,7 @@
         <div class="app">
             <div data-role="page" id="home" data-theme="b">
                 <div data-role="header">
-                    <h1>TEC</h1>
+                    <h1>Main Menu</h1>
                 </div>
                 <div data-role="content">
                     <a href="#about" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">About TEC</a>
@@ -51,78 +51,65 @@
             </div>
             <div data-role="page" id="about" data-theme="b">
                 <div data-role="header">
+                    <a href="#home" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
                     <h1>About TEC</h1>
-                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
                 </div>
                 <div data-role="content">
                     <p>About and Disclaimer Info goes here!</p>
-                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-carat-l ui-corner-all ui-btn-icon-left">Back</a>
                 </div>
             </div>
             <div data-role="page" id="resources" data-theme="b">
                 <div data-role="header">
+                    <a href="#home" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
                     <h1>Resources</h1>
-                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
                 </div>
                 <div data-role="content">
                     <p>TEC resources go here!</p>
-                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-carat-l ui-corner-all ui-btn-icon-left">Back</a>
                 </div>
             </div>
             <div data-role="page" id="inst" data-theme="b">
                 <div data-role="header">
+                    <a href="#home" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
                     <h1>Instructions</h1>
-                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
+                    <a href="#inst2" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
                 </div>
                 <div data-role="content">
                     <p>Instructions go here!</p>
-                    <div data-role="navbar">
-                        <ul>
-                            <li><a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-btn-inline ui-icon-carat-l ui-corner-all ui-btn-icon-left">Back</a></li>
-                            <li><a href="#inst2" data-transition="slide" class="ui-btn ui-btn-inline ui-icon-carat-r ui-corner-all ui-btn-icon-right">Next</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div data-role="page" id="inst2" data-theme="b">
                 <div data-role="header">
+                    <a href="#inst" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
                     <h1>Example Matches</h1>
-                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
+                    <a href="#inst3" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
                 </div>
                 <div data-role="content">
                     <p>Example matches go here!</p>
-                    <div data-role="navbar">
-                        <ul>
-                            <li><a href="#inst" data-transition="slide" data-direction="reverse" class="ui-btn ui-btn-inline ui-icon-carat-l ui-corner-all ui-btn-icon-left">Back</a></li>
-                            <li><a href="#inst3" data-transition="slide" class="ui-btn ui-btn-inline ui-icon-carat-r ui-corner-all ui-btn-icon-right">Next</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div data-role="page" id="inst3" data-theme="b">
                 <div data-role="header">
+                    <a href="#inst2" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
                     <h1>Example Trial</h1>
-                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
+                    <a href="#home" data-transition="slide" data-icon="home" data-direction="reverse" data-iconpos="right">Home</a>
                 </div>
                 <div data-role="content">
                     <p>Example trial goes here!</p>
-                    <a href="#inst2" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-carat-l ui-corner-all ui-btn-icon-left">Back</a>
                 </div>
             </div>
             <div data-role="page" id="finish" data-theme="b">
                 <div data-role="header">
+                    <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Home</a>
                     <h1>Finished!</h1>
-                    <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
                 </div>
                 <div data-role="content">
                     <p>Finish screen goes here!</p>
-                    <a href="#home" onclick="resetGame()" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">Continue</a>
                 </div>
             </div>
             <div data-role="page" id="matches" data-theme="b">
                 <div data-role="header">
+                    <a href="#home" data-transition="slide" data-direction="reverse" data-icon="delete">Home</a>
                     <h1>Matches</h1>
-                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
                 </div>
                 <div data-role="content">
                     <div class="ui-grid-a">
@@ -157,8 +144,8 @@
             </div>
             <div data-role="page" id="game" data-theme="b">
                 <div data-role="header">
-                    <h1>TEC</h1>
-                    <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">home</a>
+                    <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" data-icon="delete">Home</a>
+                    <h1>TEC Game</h1>
                 </div>
                     <div data-role="content">
                         <div id="gallery" class="ui-grid-c">

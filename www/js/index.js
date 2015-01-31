@@ -19,12 +19,17 @@ $(document).one("mobileinit", function(){
 });
 
 /**
-* Run your App Logic only when both frameworks have loaded
+* Run App Logic only when both frameworks have loaded
 */
 $.when(gapReady, jqmReady).then(appLogic);
 
-// App Logic -- add fastclick and hide splash screen.
-function appLogic() {   
+// App Logic -- add back disable and hide splash screen.
+function appLogic() {  
+    document.addEventListener("backbutton", onBackKeyDown, false);
+    function onBackKeyDown(e) {
+        e.preventDefault();
+    }
+    
     setTimeout(function() {
         navigator.splashscreen.hide();
     }, 2000);
