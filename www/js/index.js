@@ -33,13 +33,19 @@ function appLogic() {
     }
     
     if (device.platform === "Android") {
-        sound = new Media("/android_asset/www/assets/clickSnd.wav");
+        sound = new Media("/android_asset/www/assets/clickSnd.wav", onSuccess, onError);
+        window.alert("android");
     }
     else {
         sound = new Media("assets/clickSnd.wav");
+        window.alert("ios");
     }
     
     setTimeout(function() {
         navigator.splashscreen.hide();
     }, 2000);
+    
+    function onError(e) {
+        window.alert(e);
+    }
 }
