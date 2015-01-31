@@ -48,10 +48,12 @@ var trialMtch = [];
 
 $("a").on(TOUCH_START, function() {
     var linkID = $(this).attr('id');
+    var parID = '#' + $(this).parent().attr('id');
+
     
     if (linkID) {
         var num = parseInt(linkID);
-        countClick(num);
+        countClick(num, parID);
     }
 });
 
@@ -69,12 +71,10 @@ $(document).on('pagebeforeshow', '#matches', function() {
         }
     }
     
-    if (!audio) {
+    /*if (!audio) {
         setAudio();
-    }
-    else {
-        window.alert("success!");
-    }
+    }*/
+
     matchGen();
     imgDelay();
     
@@ -158,7 +158,7 @@ function showMatch() {
 function imgDelay() {
     setTimeout(function() {
         $('img').css({'opacity': '100'});
-        sound.stop();
+        //sound.stop();
     }, 500);
 }
 
@@ -198,6 +198,8 @@ function imgSel() {
     var imgArry = [];
     trialMtch = [];
     var success = 0;
+    
+    $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').css({'border': '1px solid gray'});
     
     if (gamCnt === 15) {
         hide = true;
@@ -397,9 +399,9 @@ function cList(arry) {
     }    
 }
 
-function countClick(sel) {
+function countClick(sel, parID) {
     imgCnt++;
-    $(this).parent().css({'border': '1px solid blue'});
+    $(parID).css({'border': '1px solid blue'});
     if (imgCnt === 1) {
         prevSel = sel;
         choice1 = sel;
@@ -437,7 +439,8 @@ function countClick(sel) {
             choice2 = sel;
             gamCnt++;
             imgCnt = 0;
-            sound.play();
+            //sound.play();
+            navigator.notification.beep(1);
             imgAnimate();
         }
         else {
@@ -498,8 +501,6 @@ function imgAnimate() {
     else {
         $('#img8').css({'opacity': '0'});
     }
-    
-    $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').css({'border': '1px solid gray'});
     
     $('img').animate({
         opacity: 0
