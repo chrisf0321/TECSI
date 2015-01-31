@@ -141,6 +141,7 @@ function setAudio() {
     else {
         sound = new Media("assets/clickSnd.wav");
     }
+    audio = true;
 }
 
 function showMatch() {
@@ -398,7 +399,7 @@ function cList(arry) {
 
 function countClick(sel) {
     imgCnt++;
-    $(this).parent().css({'border-color': 'blue'});
+    $(this).parent().css({'border': '1px solid blue'});
     if (imgCnt === 1) {
         prevSel = sel;
         choice1 = sel;
@@ -498,7 +499,7 @@ function imgAnimate() {
         $('#img8').css({'opacity': '0'});
     }
     
-    $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').css({'border-color': 'gray'});
+    $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').css({'border': '1px solid gray'});
     
     $('img').animate({
         opacity: 0
