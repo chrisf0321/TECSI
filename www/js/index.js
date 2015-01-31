@@ -25,9 +25,18 @@ $.when(gapReady, jqmReady).then(appLogic);
 
 // App Logic -- add back disable and hide splash screen.
 function appLogic() {  
+    var sound;
+    
     document.addEventListener("backbutton", onBackKeyDown, false);
     function onBackKeyDown(e) {
         e.preventDefault();
+    }
+    
+    if (device.platform === "Android") {
+        sound = new Media("/android_asset/www/assets/clickSnd.wav");
+    }
+    else {
+        sound = new Media("assets/clickSnd.wav");
     }
     
     setTimeout(function() {
