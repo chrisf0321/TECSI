@@ -136,10 +136,10 @@ $(document).on('pagebeforeshow', '#inst2', function(){
 
 function setAudio() {
     if (device.platform === "Android") {
-        sound = new Media("/android_asset/www/assets/clickSnd.wav");
+        sound = new Media("/android_asset/www/assets/ping.wav");
     }
     else {
-        sound = new Media("assets/clickSnd.wav");
+        sound = new Media("assets/ping.wav");
     }
     audio = true;
 }
