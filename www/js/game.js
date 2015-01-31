@@ -71,9 +71,9 @@ $(document).on('pagebeforeshow', '#matches', function() {
         }
     }
     
-    /*if (!audio) {
+    if (!audio) {
         setAudio();
-    }*/
+    }
 
     matchGen();
     imgDelay();
@@ -158,7 +158,7 @@ function showMatch() {
 function imgDelay() {
     setTimeout(function() {
         $('img').css({'opacity': '100'});
-        //sound.stop();
+        sound.stop();
     }, 500);
 }
 
@@ -439,8 +439,7 @@ function countClick(sel, parID) {
             choice2 = sel;
             gamCnt++;
             imgCnt = 0;
-            //sound.play();
-            navigator.notification.beep(1);
+            sound.play();
             imgAnimate();
         }
         else {
