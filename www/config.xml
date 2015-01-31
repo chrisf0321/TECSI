@@ -34,18 +34,6 @@
      <true/>
     </gap:config-file>
     
-    <gap:config-file platform="android">
-        <feature name="Media">
-            <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
-        </feature>
-    </gap:config-file>
-    
-    <gap:config-file platform="ios">
-        <feature name="Media">
-            <param name="ios-package" value="CDVSound" />
-        </feature>
-    </gap:config-file>
-    
     <gap:plugin name="org.apache.cordova.battery-status"/>
     <gap:plugin name="org.apache.cordova.camera"/>
     <gap:plugin name="org.apache.cordova.media-capture"/>
