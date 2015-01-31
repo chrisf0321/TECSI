@@ -10,7 +10,7 @@ var hide = false;
 var choice1;
 var choice2;
 var prevSel;
-var sound = new Media("assets/clickSnd.wav", null, null);
+var sound = new Media("assets/clickSnd.wav");
 
 var aArry = ["img/a1.jpg", "img/a2.jpg", "img/a3.jpg", "img/a4.jpg", "img/a5.jpg", "img/a6.jpg", "img/a7.jpg",
             "img/a8.jpg", "img/a9.jpg", "img/a10.jpg", "img/a11.jpg", "img/a12.jpg", "img/a13.jpg", "img/a14.jpg",
