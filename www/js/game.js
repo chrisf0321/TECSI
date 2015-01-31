@@ -10,6 +10,7 @@ var hide = false;
 var choice1;
 var choice2;
 var prevSel;
+var sound;
 
 var aArry = ["img/a1.jpg", "img/a2.jpg", "img/a3.jpg", "img/a4.jpg", "img/a5.jpg", "img/a6.jpg", "img/a7.jpg",
             "img/a8.jpg", "img/a9.jpg", "img/a10.jpg", "img/a11.jpg", "img/a12.jpg", "img/a13.jpg", "img/a14.jpg",
@@ -65,6 +66,15 @@ $(document).on('pagebeforeshow', '#matches', function() {
         else if ($(window).width() == 768 && $(window).height() == 1024) {
             $('.ui-grid-a').css({'padding-left': '60px', 'padding-right': '60px', 'padding-top': '0px'});
         }
+    }
+    
+    if (device.platform === "Android") {
+        sound = new Media("/android_asset/www/assets/clickSnd.wav");
+        window.alert("android");
+    }
+    else {
+        sound = new Media("assets/clickSnd.wav");
+        window.alert("ios");
     }
     matchGen();
     imgDelay();
