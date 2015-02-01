@@ -60,6 +60,11 @@ $("a").on(TOUCH_START, function() {
     }
 });
 
+$(document).on('pagebeforeshow', '#home', function() {
+    var bestScore = window.localStorage.getItem("score");
+    $("#tot").html("<h2>Best Score: " + bestScore + "</h2>");
+});
+
 $(document).on('pagebeforeshow', '#matches', function() {
     $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
     $('img').css({'opacity': '0'});
@@ -74,9 +79,9 @@ $(document).on('pagebeforeshow', '#matches', function() {
         }
     }
     
-    /*if (!audio) {
+    if (!audio) {
         setAudio();
-    }*/
+    }
 
     matchGen();
     imgDelay();
@@ -94,7 +99,6 @@ $(document).on('pagebeforeshow', '#game', function () {
     bCnt = 0;
     cCnt = 0;
     hide = false;
-    window.alert(window.localStorage.getItem("score"));
     $('#blk5, #blk6, #blk7, #blk8').hide();
     $('img').css({'opacity': '0'});
     if ($(this).height() > $(this).width()) {
@@ -164,7 +168,7 @@ function showMatch() {
 function imgDelay() {
     setTimeout(function() {
         $('img').css({'opacity': '100'});
-        //sound.stop();
+        sound.stop();
         stTime = new Date().getTime();
         active = true;
     }, 500);
@@ -240,7 +244,8 @@ function imgSel() {
         imgDelay();
     }
     else {
-        $.mobile.changePage("#finish", {transition: "turn"});
+        $("#gamScr").html("<h2>Game Score: " + points + "</h2>");
+        $.mobile.changePage("#finish", {transition: "slide"});
         window.localStorage.setItem("score", points);
     }
 }
@@ -255,7 +260,7 @@ function resetGame() {
     timer = 0;
     active = false;
     hide = false;
-    //sound.stop();
+    sound.stop();
 }
 
 function aList(arry) {
@@ -455,7 +460,7 @@ function countClick(sel, parID) {
                 imgCnt = 0;
                 active = false;
                 if ($.inArray(prevSel, trialMtch) !== -1 && $.inArray(sel, trialMtch) !== -1) {
-                    //sound.play();
+                    sound.play();
                     calcScore();
                 }
                 imgAnimate();
