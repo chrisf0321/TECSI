@@ -247,9 +247,14 @@ function imgSel() {
         imgDelay();
     }
     else {
+        var oldScore = window.localStorage.getItem("score");
+        
         $("#gamScr").html("<h2>Game Score: " + points + "</h2>");
         $.mobile.changePage("#finish", {transition: "slide"});
-        window.localStorage.setItem("score", points);
+        
+        if (oldScore < points) {
+            window.localStorage.setItem("score", points);
+        }
     }
 }
 
