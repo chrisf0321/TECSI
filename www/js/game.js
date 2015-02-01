@@ -149,10 +149,10 @@ $(document).on('pagebeforeshow', '#inst2', function(){
 
 function setAudio() {
     if (device.platform === "Android") {
-        sound = new Media("/android_asset/www/assets/ping.wav");
+        sound = new Media("/android_asset/www/assets/clickSnd.wav");
     }
     else {
-        sound = new Media("assets/ping.wav");
+        sound = new Media("assets/clickSnd.wav");
     }
     audio = true;
 }
@@ -174,7 +174,7 @@ function imgDelay() {
         sound.stop();
         stTime = new Date().getTime();
         active = true;
-    }, 500);
+    }, 300);
 }
 
 Array.prototype.shuffle = function() {
