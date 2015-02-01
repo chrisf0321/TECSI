@@ -39,7 +39,7 @@
     <body>
         <div class="app">
             <div data-role="page" id="home" data-theme="b">
-                <div data-role="header">
+                <div data-role="header" data-position="fixed">
                     <h1>Main Menu</h1>
                 </div>
                 <div data-role="content">
@@ -50,8 +50,8 @@
                 </div>
             </div>
             <div data-role="page" id="about" data-theme="b">
-                <div data-role="header">
-                    <a href="#home" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
+                <div data-role="header" data-position="fixed">
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>About TEC</h1>
                 </div>
                 <div data-role="content">
@@ -59,8 +59,8 @@
                 </div>
             </div>
             <div data-role="page" id="resources" data-theme="b">
-                <div data-role="header">
-                    <a href="#home" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
+                <div data-role="header" data-position="fixed">
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Resources</h1>
                 </div>
                 <div data-role="content">
@@ -68,47 +68,47 @@
                 </div>
             </div>
             <div data-role="page" id="inst" data-theme="b">
-                <div data-role="header">
-                    <a href="#home" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
+                <div data-role="header" data-position="fixed">
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Instructions</h1>
-                    <a href="#inst2" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
+                    <a href="#inst2" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
                     <p>Instructions go here!</p>
                 </div>
             </div>
             <div data-role="page" id="inst2" data-theme="b">
-                <div data-role="header">
-                    <a href="#inst" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
+                <div data-role="header" data-position="fixed">
+                    <a href="#inst" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Example Matches</h1>
-                    <a href="#inst3" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
+                    <a href="#inst3" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
                     <p>Example matches go here!</p>
                 </div>
             </div>
             <div data-role="page" id="inst3" data-theme="b">
-                <div data-role="header">
-                    <a href="#inst2" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
+                <div data-role="header" data-position="fixed">
+                    <a href="#inst2" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Example Trial</h1>
-                    <a href="#home" data-transition="slide" data-icon="home" data-direction="reverse" data-iconpos="right">Home</a>
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
                     <p>Example trial goes here!</p>
                 </div>
             </div>
             <div data-role="page" id="finish" data-theme="b">
-                <div data-role="header">
-                    <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Home</a>
+                <div data-role="header" data-position="fixed">
                     <h1>Finished!</h1>
                 </div>
                 <div data-role="content">
                     <p>Finish screen goes here!</p>
+                    <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">Main Menu</a>
                 </div>
             </div>
             <div data-role="page" id="matches" data-theme="b">
-                <div data-role="header">
-                    <a href="#home" data-transition="slide" data-direction="reverse" data-icon="delete">Home</a>
+                <div data-role="header" data-position="fixed">
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Matches</h1>
                 </div>
                 <div data-role="content">
@@ -143,8 +143,8 @@
                 </div>
             </div>
             <div data-role="page" id="game" data-theme="b">
-                <div data-role="header">
-                    <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" data-icon="delete">Home</a>
+                <div data-role="header" data-position="fixed">
+                    <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>TEC Game</h1>
                 </div>
                     <div data-role="content">

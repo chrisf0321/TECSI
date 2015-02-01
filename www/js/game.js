@@ -5,13 +5,16 @@ var imgCnt = 0;
 var aCnt = 0;
 var bCnt = 0;
 var cCnt = 0;
-var timer;
 var hide = false;
 var choice1;
 var choice2;
 var prevSel;
 var sound;
 var audio = false;
+var active = false;
+var stTime;
+var stopTime;
+var points = 0;
 
 var aArry = ["img/a1.jpg", "img/a2.jpg", "img/a3.jpg", "img/a4.jpg", "img/a5.jpg", "img/a6.jpg", "img/a7.jpg",
             "img/a8.jpg", "img/a9.jpg", "img/a10.jpg", "img/a11.jpg", "img/a12.jpg", "img/a13.jpg", "img/a14.jpg",
@@ -71,9 +74,9 @@ $(document).on('pagebeforeshow', '#matches', function() {
         }
     }
     
-    if (!audio) {
+    /*if (!audio) {
         setAudio();
-    }
+    }*/
 
     matchGen();
     imgDelay();
@@ -83,12 +86,15 @@ $(document).on('pagebeforeshow', '#matches', function() {
 
 $(document).on('pagebeforeshow', '#game', function () {
     $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
+    timer = 0;
+    points = 0;
     gameCnt = 0;
     imgCnt = 0;
     aCnt = 0;
     bCnt = 0;
     cCnt = 0;
     hide = false;
+    window.alert(window.localStorage.getItem("score"));
     $('#blk5, #blk6, #blk7, #blk8').hide();
     $('img').css({'opacity': '0'});
     if ($(this).height() > $(this).width()) {
@@ -158,7 +164,9 @@ function showMatch() {
 function imgDelay() {
     setTimeout(function() {
         $('img').css({'opacity': '100'});
-        sound.stop();
+        //sound.stop();
+        stTime = new Date().getTime();
+        active = true;
     }, 500);
 }
 
@@ -233,17 +241,21 @@ function imgSel() {
     }
     else {
         $.mobile.changePage("#finish", {transition: "turn"});
-        resetGame();
+        window.localStorage.setItem("score", points);
     }
 }
 
 function resetGame() {
     gamCnt = 0;
+    points = 0;
     imgCnt = 0;
     aCnt = 0;
     bCnt = 0;
     cCnt = 0;
+    timer = 0;
+    active = false;
     hide = false;
+    //sound.stop();
 }
 
 function aList(arry) {
@@ -400,52 +412,74 @@ function cList(arry) {
 }
 
 function countClick(sel, parID) {
-    imgCnt++;
-    $(parID).css({'border': '1px solid blue'});
-    if (imgCnt === 1) {
-        prevSel = sel;
-        choice1 = sel;
+    if (active) {
+        imgCnt++;
+        $(parID).css({'border': '1px solid blue'});
+        if (imgCnt === 1) {
+            prevSel = sel;
+            choice1 = sel;
         
-        if (hide) {
-            if (sel !== 0) {
-                $('#img1').css({'opacity': '0'});
+            if (hide) {
+                if (sel !== 0) {
+                    $('#img1').css({'opacity': '0'});
+                }
+                if (sel !== 1) {
+                    $('#img2').css({'opacity': '0'});
+                }
+                if (sel !== 2) {
+                    $('#img3').css({'opacity': '0'});
+                }
+                if (sel !== 3) {
+                    $('#img4').css({'opacity': '0'});
+                }
+                if (sel !== 4) {
+                    $('#img5').css({'opacity': '0'});
+                }
+                if (sel !== 5) {
+                    $('#img6').css({'opacity': '0'});
+                }
+                if (sel !== 6) {
+                    $('#img7').css({'opacity': '0'});
+                }
+                if (sel !== 7) {
+                    $('#img8').css({'opacity': '0'});
+                }
             }
-            if (sel !== 1) {
-                $('#img2').css({'opacity': '0'});
+            return false;
+        }
+        else if (imgCnt === 2) {
+            if (sel !== prevSel) {
+                stopTime = new Date().getTime();
+                choice2 = sel;
+                gamCnt++;
+                imgCnt = 0;
+                active = false;
+                if ($.inArray(prevSel, trialMtch) !== -1 && $.inArray(sel, trialMtch) !== -1) {
+                    //sound.play();
+                    calcScore();
+                }
+                imgAnimate();
             }
-            if (sel !== 2) {
-                $('#img3').css({'opacity': '0'});
-            }
-            if (sel !== 3) {
-                $('#img4').css({'opacity': '0'});
-            }
-            if (sel !== 4) {
-                $('#img5').css({'opacity': '0'});
-            }
-            if (sel !== 5) {
-                $('#img6').css({'opacity': '0'});
-            }
-            if (sel !== 6) {
-                $('#img7').css({'opacity': '0'});
-            }
-            if (sel !== 7) {
-                $('#img8').css({'opacity': '0'});
+            else {
+                imgCnt--;
             }
         }
-        return false;
     }
-    else if (imgCnt === 2) {
-        if (sel !== prevSel) {
-            choice2 = sel;
-            gamCnt++;
-            imgCnt = 0;
-            sound.play();
-            imgAnimate();
-        }
-        else {
-            imgCnt--;
-        }
+}
+
+function calcScore() {
+    var tmp = 0;
+    var timer = stopTime - stTime;
+    timer = (timer / 1000);
+    timer = Math.round(timer * 10) / 10;
+    tmp = 4.0 - timer;
+    
+    if (tmp > 0) {
+        tmp = tmp / 2;
+        points += tmp;
+        points = Math.round(points * 10) / 10;
     }
+    
 }
 
 function imgAnimate() {
