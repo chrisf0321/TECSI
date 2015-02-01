@@ -61,6 +61,9 @@ $("a").on(TOUCH_START, function() {
 });
 
 $(document).on('pagebeforeshow', '#home', function() {
+    if (window.localStorage.getItem("score") === null) {
+        window.localStorage.setItem("score", 0);
+    }
     var bestScore = window.localStorage.getItem("score");
     $("#tot").html("<h2>Best Score: " + bestScore + "</h2>");
 });

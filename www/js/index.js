@@ -31,10 +31,6 @@ function appLogic() {
         e.preventDefault();
     }
     
-    if (window.localStorage.getItem("score") === null) {
-        window.localStorage.setItem("score", 0);
-    }
-    
     setTimeout(function() {
         navigator.splashscreen.hide();
     }, 2000);
