@@ -15,6 +15,7 @@ var active = false;
 var stTime;
 var stopTime;
 var points = 0;
+var fnLoop = false;
 
 var aArry = ["img/a1.jpg", "img/a2.jpg", "img/a3.jpg", "img/a4.jpg", "img/a5.jpg", "img/a6.jpg", "img/a7.jpg",
             "img/a8.jpg", "img/a9.jpg", "img/a10.jpg", "img/a11.jpg", "img/a12.jpg", "img/a13.jpg", "img/a14.jpg",
@@ -91,7 +92,6 @@ $(document).on('pagebeforeshow', '#matches', function() {
     
 });
 
-
 $(document).on('pagebeforeshow', '#game', function () {
     $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
     timer = 0;
@@ -122,6 +122,23 @@ $(document).on('pagebeforeshow', '#game', function () {
     imgDelay();
 });
 
+$(document).on('pagebeforeshow', '#finish', function() {
+    fnLoop = true;
+    
+    if ($(this).height() > $(this).width()) {
+        $('.ui-block-a, .ui-block-b').addClass('full_width');
+        
+        if ($(window).width() == 320 && $(window).height() == 480) {
+            $('.ui-grid-a').css({'padding-left': '17px', 'padding-right': '17px', 'padding-top': '0px'});
+        }
+        else if ($(window).width() == 768 && $(window).height() == 1024) {
+            $('.ui-grid-a').css({'padding-left': '60px', 'padding-right': '60px', 'padding-top': '0px'});
+        }
+    }
+    setFnImg();
+    fnSwitcher() ;
+});
+
 $(window).on('orientationchange', function (e) {
     if (e.orientation == 'landscape') {
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').removeClass('full_width');
@@ -147,12 +164,62 @@ $(document).on('pagebeforeshow', '#inst2', function(){
     $('.ui-block-a, .ui-block-b').addClass('inst_mod');
 });
 
+function setFnImg() {
+    $("#a1").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+    $("#a2").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+    $("#a3").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+    $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+}
+
+function fnSwitcher() {
+    var num = 0;
+    
+    if(fnLoop) {
+        num = Math.floor(Math.random() * 4);
+        
+        setTimeout(function () {
+        if (num === 0) {
+            $("#a1").fadeToggle("slow", "linear").promise().done(function() {
+                $("#a1").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+                $("#a1").fadeToggle("slow", "linear").promise().done(function() {
+                    fnSwitcher();
+                });
+            });
+        }
+        else if (num === 1) {
+            $("#a2").fadeToggle("slow", "linear").promise().done(function() {
+                $("#a2").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+                $("#a2").fadeToggle("slow", "linear").promise().done(function() {
+                    fnSwitcher();
+                });
+            });
+        }
+        else if (num === 2) {
+            $("#a3").fadeToggle("slow", "linear").promise().done(function() {
+                $("#a3").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+                $("#a3").fadeToggle("slow", "linear").promise().done(function() {
+                    fnSwitcher();
+                });
+            });           
+        }
+        else {
+            $("#a4").fadeToggle("slow", "linear").promise().done(function() {
+                $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+                $("#a4").fadeToggle("slow", "linear").promise().done(function() {
+                    fnSwitcher();
+                });
+            }); 
+        }
+    }, 1000);
+    }
+}
+
 function setAudio() {
     if (device.platform === "Android") {
-        sound = new Media("/android_asset/www/assets/clickSnd.wav");
+        sound = new Media("/android_asset/www/assets/click2.wav");
     }
     else {
-        sound = new Media("assets/clickSnd.wav");
+        sound = new Media("assets/click2.wav");
     }
     audio = true;
 }
@@ -268,6 +335,7 @@ function resetGame() {
     timer = 0;
     active = false;
     hide = false;
+    fnLoop = false;
     sound.stop();
 }
 
