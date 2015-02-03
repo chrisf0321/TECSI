@@ -169,46 +169,47 @@ function setFnImg() {
     $("#a2").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
     $("#a3").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
     $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+    $('img').css({'opacity': '100'});
 }
 
 function fnSwitcher() {
     var num = 0;
-    
+ 
     if(fnLoop) {
         num = Math.floor(Math.random() * 4);
         
         setTimeout(function () {
         if (num === 0) {
-            $("#a1").fadeToggle("slow", "linear").promise().done(function() {
-                $("#a1").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
-                $("#a1").fadeToggle("slow", "linear").promise().done(function() {
+            $("#a1").animate({ opacity: 0}, 600).promise().done(function() {
+                $("#a1").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                    opacity: 100}, 600).promise().done(function() { 
                     fnSwitcher();
                 });
             });
         }
         else if (num === 1) {
-            $("#a2").fadeToggle("slow", "linear").promise().done(function() {
-                $("#a2").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
-                $("#a2").fadeToggle("slow", "linear").promise().done(function() {
+            $("#a2").animate({ opacity: 0}, 600).promise().done(function() {
+                $("#a2").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                    opacity: 100}, 600).promise().done(function() { 
                     fnSwitcher();
                 });
             });
         }
         else if (num === 2) {
-            $("#a3").fadeToggle("slow", "linear").promise().done(function() {
-                $("#a3").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
-                $("#a3").fadeToggle("slow", "linear").promise().done(function() {
+            $("#a3").animate({ opacity: 0}, 600).promise().done(function() {
+                $("#a3").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                    opacity: 100}, 600).promise().done(function() { 
                     fnSwitcher();
                 });
-            });           
+            });      
         }
         else {
-            $("#a4").fadeToggle("slow", "linear").promise().done(function() {
-                $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
-                $("#a4").fadeToggle("slow", "linear").promise().done(function() {
+            $("#a4").animate({ opacity: 0}, 600).promise().done(function() {
+                $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                    opacity: 100}, 600).promise().done(function() { 
                     fnSwitcher();
                 });
-            }); 
+            });
         }
     }, 1000);
     }
