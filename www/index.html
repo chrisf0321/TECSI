@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
@@ -39,7 +19,7 @@
     <body>
         <div class="app">
             <div data-role="page" id="home" data-theme="b">
-                <div data-role="header" data-position="fixed">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <h1>Main Menu</h1>
                 </div>
                 <div data-role="content">
@@ -52,7 +32,7 @@
                 <div id="tot"></div>
             </div>
             <div data-role="page" id="about" data-theme="b">
-                <div data-role="header" data-position="fixed">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>About TEC</h1>
                 </div>
@@ -61,16 +41,50 @@
                 </div>
             </div>
             <div data-role="page" id="resources" data-theme="b">
-                <div data-role="header" data-position="fixed">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Resources</h1>
                 </div>
                 <div data-role="content">
-                    <p>TEC resources go here!</p>
+                    <h3><strong>If you are feeling suicidal, please contact:</strong></h3>
+                    <p><ins>American Users</ins>:</p>
+                    <ul>
+                        <li><a onclick="window.open('tel:18002738255', '_system')">Suicide Prevention Hotline: 1-800-273-TALK (8255)</a></li>
+                        <li><a onclick="window.open('tel:18007842433', '_system')">HopeLine Suicide Hotline: 1-800-SUICIDE (1-800-784-2433)</a></li>
+                        <li>Call 911</li>
+                    </ul>
+                    
+                </div>
+            </div>
+            <div data-role="page" id="resources2" data-theme="b">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <h1>Resources</h1>
+                </div>
+                <div data-role="content">
+                    <p></p>
+                </div>
+            </div>
+            <div data-role="page" id="resources3" data-theme="b">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <h1>Resources</h1>
+                </div>
+                <div data-role="content">
+                    <p></p>
+                </div>
+            </div>
+            <div data-role="page" id="resources4" data-theme="b">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <h1>Resources</h1>
+                </div>
+                <div data-role="content">
+                    <p></p>
                 </div>
             </div>
             <div data-role="page" id="inst" data-theme="b">
-                <div data-role="header" data-position="fixed">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Instructions</h1>
                     <a href="#inst2" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
@@ -80,7 +94,7 @@
                 </div>
             </div>
             <div data-role="page" id="inst2" data-theme="b">
-                <div data-role="header" data-position="fixed">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#inst" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Example Matches</h1>
                     <a href="#inst3" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
@@ -90,7 +104,7 @@
                 </div>
             </div>
             <div data-role="page" id="inst3" data-theme="b">
-                <div data-role="header" data-position="fixed">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#inst2" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Example Trial</h1>
                     <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
@@ -100,7 +114,7 @@
                 </div>
             </div>
             <div data-role="page" id="finish" data-theme="b">
-                <div data-role="header" data-position="fixed">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <h1>Finished!</h1>
                 </div>
                 <div data-role="content">
@@ -128,7 +142,7 @@
                 </div>
             </div>
             <div data-role="page" id="matches" data-theme="b">
-                <div data-role="header" data-position="fixed">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Matches</h1>
                 </div>
@@ -164,7 +178,7 @@
                 </div>
             </div>
             <div data-role="page" id="game" data-theme="b">
-                <div data-role="header" data-position="fixed">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>TEC Game</h1>
                 </div>
