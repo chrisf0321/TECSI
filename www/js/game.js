@@ -106,6 +106,7 @@ $(document).on('pagebeforeshow', '#game', function () {
     $('img').css({'opacity': '0'});
     if ($(this).height() > $(this).width()) {
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').addClass('full_width');
+        window.alert("here");
         
         if ($(window).width() == 320 && $(window).height() == 480) {
             $('.ui-grid-c').css({'padding-left': '17px', 'padding-right': '17px', 'padding-top': '0px'});
