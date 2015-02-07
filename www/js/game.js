@@ -93,6 +93,7 @@ $(document).on('pagebeforeshow', '#matches', function() {
 });
 
 $(document).on('pagebeforeshow', '#game', function () {
+    window.alert("here1");
     $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
     timer = 0;
     points = 0;
@@ -103,6 +104,7 @@ $(document).on('pagebeforeshow', '#game', function () {
     cCnt = 0;
     hide = false;
     $('#blk5, #blk6, #blk7, #blk8').hide();
+    window.alert("here2");
     $('img').css({'opacity': '0'});
     if ($(this).height() > $(this).width()) {
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').addClass('full_width');
