@@ -71,27 +71,147 @@
                     <a href="#inst2" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
-                    <p>Instructions go here!</p>
+                    <h1 id="in1"><strong>Tec-Tec is a matching game</strong></h1>
+                    <p id="in2"><strong>The goal is to match one image/word with another image/word within a grid like this:</strong></p>
+                    <div class="ui-grid-c">
+                        <div class="ui-block-a">
+                            <img src="img/b1.jpg"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <img src="img/c1.jpg"/>
+                        </div>
+                        <div class="ui-block-c">
+                            <img src="img/c2.jpg"/>
+                        </div>
+                        <div class="ui-block-d">
+                            <img src="img/e1.jpg"/>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div data-role="page" id="inst2" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#inst" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
-                    <h1>Example Matches</h1>
+                    <h1>Instructions</h1>
                     <a href="#inst3" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
-                    <p>Example matches go here!</p>
+                    <h1 id="in3"><strong>How do you know what to Match?</strong></h1>
+                    <p id="in4"><strong>At the start of each game, you're given three pairs of images/words, like this:</strong></p>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <img src="img/a1.jpg"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <img src="img/d1.jpg"/>
+                        </div>
+                    </div>
+                    <h4 class="ui-bar"></h4>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <img src="img/b1.jpg"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <img src="img/e1.jpg"/>
+                        </div>
+                    </div>
+                    <h4 class="ui-bar"></h4>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <img src="img/c3.jpg"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <img src="img/c4.jpg"/>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div data-role="page" id="inst3" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
-                    <a href="#inst2" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <a href="#inst2" onclick="inst=false" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <h1>Instructions</h1>
+                    <a href="#inst4" onclick="inst=false" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
+                </div>
+                <div data-role="content">
+                    <h1 id="in5"><strong>How do you match pairs?</strong></h1>
+                    <p id="in6"><strong>One of those pairs will appear on each game screen.  There are <ins>60</ins> total game screens.</strong></p>
+                    <p id="in7"><strong>Tap on the members of the pair as quickly as possible.  The <ins>faster</ins> and more <ins>accurate</ins> you are, the more points you get.</strong></p>
+                    <div class="ui-grid-c">
+                        <div id="inBlk1" class="ui-block-a">
+                            <img src="img/b1.jpg"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <img src="img/c1.jpg"/>
+                        </div>
+                        <div class="ui-block-c">
+                            <img src="img/c2.jpg"/>
+                        </div>
+                        <div id="inBlk2" class="ui-block-d">
+                            <img src="img/e1.jpg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="page" id="inst4" data-theme="b">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
+                    <a href="#inst3" onclick="inst2=false" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <h1>Instructions</h1>
+                    <a href="#inst5" onclick="inst2=false" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
+                </div>
+                <div data-role="content">
+                    <h1 id="in8"><strong>Tec-Tec gets more challenging</strong></h1>
+                    <p id="in9"><strong>Image/word options start to black out after you select the first image/word:</strong></p>
+                    <div class="ui-grid-c">
+                        <div id="inBlk3" class="ui-block-a">
+                            <img src="img/b1.jpg"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <img id="ing2" src="img/c1.jpg"/>
+                        </div>
+                        <div class="ui-block-c">
+                            <img id="ing3" src="img/c2.jpg"/>
+                        </div>
+                        <div id="inBlk4" class="ui-block-d">
+                            <img id="ing4" src="img/e1.jpg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="page" id="inst5" data-theme="b">
+                <div data-role="header" data-position="fixed" data-tap-toggle="false">
+                    <a href="#inst4" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1>Example Trial</h1>
                     <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
-                    <p>Example trial goes here!</p>
+                    <h1 id="in10"><strong>Then Tec-Tec gets even more challenging</strong></h1>
+                    <p id="in11"><strong>The grid doubles in size:</strong></p>
+                    <div class="ui-grid-c">
+                        <div class="ui-block-a">
+                            <img src="img/b1.jpg"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <img src="img/c1.jpg"/>
+                        </div>
+                        <div class="ui-block-c">
+                            <img src="img/c2.jpg"/>
+                        </div>
+                        <div class="ui-block-d">
+                            <img src="img/e1.jpg"/>
+                        </div>
+                        <div class="ui-block-a">
+                            <img src="img/b2.jpg"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <img src="img/c5.jpg"/>
+                        </div>
+                        <div class="ui-block-c">
+                            <img src="img/c6.jpg"/>
+                        </div>
+                        <div class="ui-block-d">
+                            <img src="img/c7.jpg"/>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div data-role="page" id="finish" data-theme="b">
