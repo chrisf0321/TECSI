@@ -16,6 +16,7 @@ var stTime;
 var stopTime;
 var points = 0;
 var fnLoop = false;
+var fnLand = false;
 
 var aArry = ["img/a1.jpg", "img/a2.jpg", "img/a3.jpg", "img/a4.jpg", "img/a5.jpg", "img/a6.jpg", "img/a7.jpg",
             "img/a8.jpg", "img/a9.jpg", "img/a10.jpg", "img/a11.jpg", "img/a12.jpg", "img/a13.jpg", "img/a14.jpg",
@@ -106,7 +107,6 @@ $(document).on('pagebeforeshow', '#game', function () {
     $('img').css({'opacity': '0'});
     if ($(window).height() > $(window).width()) {
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').addClass('full_width');
-        window.alert("here");
         
         if ($(window).width() == 320 && $(window).height() == 480) {
             $('.ui-grid-c').css({'padding-left': '17px', 'padding-right': '17px', 'padding-top': '0px'});
@@ -126,15 +126,21 @@ $(document).on('pagebeforeshow', '#game', function () {
 $(document).on('pagebeforeshow', '#finish', function() {
     fnLoop = true;
     
-    if ($(this).height() > $(this).width()) {
+    if ($(window).height() > $(window).width()) {
+        $('#fn1, #fn2, #fn3, #fn4').hide();
+        fnLand = false;
         $('.ui-block-a, .ui-block-b').addClass('full_width');
         
         if ($(window).width() == 320 && $(window).height() == 480) {
-            $('.ui-grid-a').css({'padding-left': '17px', 'padding-right': '17px', 'padding-top': '0px'});
+            $('.ui-grid-c').css({'padding-left': '17px', 'padding-right': '17px', 'padding-top': '0px'});
         }
         else if ($(window).width() == 768 && $(window).height() == 1024) {
-            $('.ui-grid-a').css({'padding-left': '60px', 'padding-right': '60px', 'padding-top': '0px'});
+            $('.ui-grid-c').css({'padding-left': '60px', 'padding-right': '60px', 'padding-top': '0px'});
         }
+    }
+    else {
+        $('#fn1, #fn2, #fn3, #fn4').show();
+        fnLand = true;
     }
     setFnImg();
     fnSwitcher() ;
@@ -142,10 +148,14 @@ $(document).on('pagebeforeshow', '#finish', function() {
 
 $(window).on('orientationchange', function (e) {
     if (e.orientation == 'landscape') {
+        $('#fn1, #fn2, #fn3, #fn4').show();
+        fnLand = true;
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').removeClass('full_width');
         $('.ui-grid-c').css({'padding-left': '1px', 'padding-right': '1px', 'padding-top': '0px'});
     }
     if (e.orientation == 'portrait') {
+        $('#fn1, #fn2, #fn3, #fn4').hide();
+        fnLand = false;
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').addClass('full_width');
         
         if ($(window).width() == 320 && $(window).height() == 480) {
@@ -170,14 +180,26 @@ function setFnImg() {
     $("#a2").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
     $("#a3").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
     $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+    $("#a5").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+    $("#a6").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+    $("#a7").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
+    $("#a8").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
     $('img').css({'opacity': '100'});
 }
 
 function fnSwitcher() {
     var num = 0;
+    var imgNum;
+    
+    if (fnLand) {
+        imgNum = 8;
+    }
+    else {
+        imgNum = 4;
+    }
  
     if(fnLoop) {
-        num = Math.floor(Math.random() * 4);
+        num = Math.floor(Math.random() * imgNum);
         
         setTimeout(function () {
         if (num === 0) {
@@ -204,9 +226,41 @@ function fnSwitcher() {
                 });
             });      
         }
-        else {
+        else if (num === 3) {
             $("#a4").animate({ opacity: 0}, 600).promise().done(function() {
                 $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                    opacity: 100}, 600).promise().done(function() { 
+                    fnSwitcher();
+                });
+            });
+        }
+        else if (num === 4) {
+            $("#a5").animate({ opacity: 0}, 600).promise().done(function() {
+                $("#a5").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                    opacity: 100}, 600).promise().done(function() { 
+                    fnSwitcher();
+                });
+            });
+        }
+        else if (num === 5) {
+            $("#a6").animate({ opacity: 0}, 600).promise().done(function() {
+                $("#a6").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                    opacity: 100}, 600).promise().done(function() { 
+                    fnSwitcher();
+                });
+            });
+        }
+        else if (num === 6) {
+            $("#a7").animate({ opacity: 0}, 600).promise().done(function() {
+                $("#a7").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                    opacity: 100}, 600).promise().done(function() { 
+                    fnSwitcher();
+                });
+            });
+        }
+        else if (num === 7) {
+            $("#a8").animate({ opacity: 0}, 600).promise().done(function() {
+                $("#a8").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
                     opacity: 100}, 600).promise().done(function() { 
                     fnSwitcher();
                 });
