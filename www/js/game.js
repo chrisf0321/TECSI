@@ -128,7 +128,7 @@ $(document).on('pagebeforeshow', '#finish', function() {
     
     if ($(window).height() > $(window).width()) {
         $('#fn1, #fn2').hide();
-        $('#fn3, #fn4').show();
+        $('#fn3, #fn4', '#hideBar').show();
         fnLand = false;
         $('.ui-block-a, .ui-block-b').addClass('full_width');
         
@@ -141,7 +141,7 @@ $(document).on('pagebeforeshow', '#finish', function() {
     }
     else {
         $('#fn1, #fn2').show();
-        $('#fn3, #fn4').hide();
+        $('#fn3, #fn4', '#hideBar').hide();
         fnLand = true;
     }
     setFnImg();
@@ -151,14 +151,14 @@ $(document).on('pagebeforeshow', '#finish', function() {
 $(window).on('orientationchange', function (e) {
     if (e.orientation == 'landscape') {
         $('#fn1, #fn2').show();
-        $('#fn3, #fn4').hide();
+        $('#fn3, #fn4', '#hideBar').hide();
         fnLand = true;
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').removeClass('full_width');
         $('.ui-grid-c').css({'padding-left': '1px', 'padding-right': '1px', 'padding-top': '0px'});
     }
     if (e.orientation == 'portrait') {
         $('#fn1, #fn2').hide();
-        $('#fn3, #fn4').show();
+        $('#fn3, #fn4', '#hideBar').show();
         fnLand = false;
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').addClass('full_width');
         
