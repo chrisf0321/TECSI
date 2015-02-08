@@ -127,7 +127,8 @@ $(document).on('pagebeforeshow', '#finish', function() {
     fnLoop = true;
     
     if ($(window).height() > $(window).width()) {
-        $('#fn1, #fn2, #fn3, #fn4').hide();
+        $('#fn1, #fn2').hide();
+        $('#fn3, #fn4').show();
         fnLand = false;
         $('.ui-block-a, .ui-block-b').addClass('full_width');
         
@@ -139,7 +140,8 @@ $(document).on('pagebeforeshow', '#finish', function() {
         }
     }
     else {
-        $('#fn1, #fn2, #fn3, #fn4').show();
+        $('#fn1, #fn2').show();
+        $('#fn3, #fn4').hide();
         fnLand = true;
     }
     setFnImg();
@@ -148,13 +150,15 @@ $(document).on('pagebeforeshow', '#finish', function() {
 
 $(window).on('orientationchange', function (e) {
     if (e.orientation == 'landscape') {
-        $('#fn1, #fn2, #fn3, #fn4').show();
+        $('#fn1, #fn2').show();
+        $('#fn3, #fn4').hide();
         fnLand = true;
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').removeClass('full_width');
         $('.ui-grid-c').css({'padding-left': '1px', 'padding-right': '1px', 'padding-top': '0px'});
     }
     if (e.orientation == 'portrait') {
-        $('#fn1, #fn2, #fn3, #fn4').hide();
+        $('#fn1, #fn2').hide();
+        $('#fn3, #fn4').show();
         fnLand = false;
         $('.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d').addClass('full_width');
         
@@ -182,24 +186,15 @@ function setFnImg() {
     $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
     $("#a5").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
     $("#a6").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
-    $("#a7").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
-    $("#a8").attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
     $('img').css({'opacity': '100'});
 }
 
 function fnSwitcher() {
     var num = 0;
     var imgNum;
-    
-    if (fnLand) {
-        imgNum = 8;
-    }
-    else {
-        imgNum = 4;
-    }
  
     if(fnLoop) {
-        num = Math.floor(Math.random() * imgNum);
+        num = Math.floor(Math.random() * 4);
         
         setTimeout(function () {
         if (num === 0) {
@@ -219,52 +214,40 @@ function fnSwitcher() {
             });
         }
         else if (num === 2) {
-            $("#a3").animate({ opacity: 0}, 600).promise().done(function() {
-                $("#a3").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
-                    opacity: 100}, 600).promise().done(function() { 
-                    fnSwitcher();
+            if (fnLand) {
+                $("#a5").animate({ opacity: 0}, 600).promise().done(function() {
+                    $("#a5").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                        opacity: 100}, 600).promise().done(function() { 
+                        fnSwitcher();
+                    });
                 });
-            });      
+            }
+            else {
+                $("#a3").animate({ opacity: 0}, 600).promise().done(function() {
+                    $("#a3").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                        opacity: 100}, 600).promise().done(function() { 
+                        fnSwitcher();
+                    });
+                });
+            }
         }
         else if (num === 3) {
-            $("#a4").animate({ opacity: 0}, 600).promise().done(function() {
-                $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
-                    opacity: 100}, 600).promise().done(function() { 
-                    fnSwitcher();
+            if (fnLand) {
+                $("#a6").animate({ opacity: 0}, 600).promise().done(function() {
+                    $("#a6").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                        opacity: 100}, 600).promise().done(function() { 
+                        fnSwitcher();
+                    });
                 });
-            });
-        }
-        else if (num === 4) {
-            $("#a5").animate({ opacity: 0}, 600).promise().done(function() {
-                $("#a5").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
-                    opacity: 100}, 600).promise().done(function() { 
-                    fnSwitcher();
+            }
+            else {
+                $("#a4").animate({ opacity: 0}, 600).promise().done(function() {
+                    $("#a4").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
+                        opacity: 100}, 600).promise().done(function() { 
+                        fnSwitcher();
+                    });
                 });
-            });
-        }
-        else if (num === 5) {
-            $("#a6").animate({ opacity: 0}, 600).promise().done(function() {
-                $("#a6").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
-                    opacity: 100}, 600).promise().done(function() { 
-                    fnSwitcher();
-                });
-            });
-        }
-        else if (num === 6) {
-            $("#a7").animate({ opacity: 0}, 600).promise().done(function() {
-                $("#a7").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
-                    opacity: 100}, 600).promise().done(function() { 
-                    fnSwitcher();
-                });
-            });
-        }
-        else if (num === 7) {
-            $("#a8").animate({ opacity: 0}, 600).promise().done(function() {
-                $("#a8").attr('src', bArry[Math.floor(Math.random() * bArry.length)]).animate({
-                    opacity: 100}, 600).promise().done(function() { 
-                    fnSwitcher();
-                });
-            });
+            }
         }
     }, 1000);
     }
