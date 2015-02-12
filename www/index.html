@@ -20,21 +20,33 @@
         <div class="app">
             <div data-role="page" id="home" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
-                    <h1>Main Menu</h1>
+                    <h1 class="ui-title">Main Menu</h1>
                 </div>
                 <div data-role="content">
-                    <a href="#about" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">About TEC</a>
-                    <a href="#resources" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">Resources</a>
+                    <a href="#about" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">About Tec-Tec</a>
+                    <a href="#resources" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">Help Resources</a>
                     <a href="#inst" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">How to Play</a>
                     <a href="#matches" data-transition="slide" class="ui-btn ui-icon-carat-r ui-corner-all ui-btn-icon-right">Play Game!</a>
                 </div>
                 <h1 class="ui-bar"></h1>
                 <div id="tot"></div>
+                <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="min-width:290px;">
+                    <div data-role="header" data-theme="b">
+                        <h1>Game Stats</h1>
+                    </div>
+                    <div id="stat" role="main" class="ui-content">
+                        <div id="scr"></div>
+                        <div id="cor"></div>
+                        <div id="tim"></div>
+                        <div id="totPts"></div>
+                        <a href="#" class="ui-btn ui-corner-all ui-shadow" data-rel="back" data-transition="slidedown">Back</a>
+                    </div>
+                </div>
             </div>
             <div data-role="page" id="about" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
-                    <h1>About TEC</h1>
+                    <h1>About</h1>
                 </div>
                 <div data-role="content">
                     <p>About and Disclaimer Info goes here!</p>
@@ -289,7 +301,7 @@
             <div data-role="page" id="game" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#home" onclick="resetGame()" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
-                    <h1>TEC Game</h1>
+                    <h1>Tec-Tec</h1>
                 </div>
                     <div data-role="content">
                         <div id="gallery" class="ui-grid-c">

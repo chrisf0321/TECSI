@@ -1,4 +1,8 @@
-h2{
+h2 {
+	text-align: center;
+}
+
+h5 {
 	text-align: center;
 }
 
@@ -12,6 +16,11 @@ li {
 
 #in1, #in2, #in3, #in4, #in5, #in6, #in7, #in8, #in9, #in10, #in11 {
     text-align: center;
+}
+
+.ui-title {
+    font-size: 1.3em !important;
+    padding: .4em 0 !important;
 }
 
 img{
