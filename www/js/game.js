@@ -96,9 +96,9 @@ $(document).on('pagebeforeshow', '#matches', function() {
         }
     }
     
-    /*if (!audio) {
+    if (!audio) {
         setAudio();
-    }*/
+    }
 
     matchGen();
     imgDelay();
@@ -401,7 +401,7 @@ function showMatch() {
 function imgDelay() {
     setTimeout(function() {
         $('img').css({'opacity': '100'});
-        //sound.stop();
+        sound.stop();
         stTime = new Date().getTime();
         active = true;
     }, 300);
@@ -478,7 +478,7 @@ function imgSel() {
     }
     else {
         var oldScore = window.localStorage.getItem("score");
-        var totPoints = window.localStorage.getItem("points");
+        var totPoints = parseFloat(window.localStorage.getItem("points"));
         
         $("#gamScr").html("<h2>Game Score: " + points + "</h2>");
         $.mobile.changePage("#finish", {transition: "slide"});
@@ -512,7 +512,7 @@ function resetGame() {
     active = false;
     hide = false;
     fnLoop = false;
-    //sound.stop();
+    sound.stop();
 }
 
 function aList(arry) {
@@ -712,7 +712,7 @@ function countClick(sel, parID) {
                 imgCnt = 0;
                 active = false;
                 if ($.inArray(prevSel, trialMtch) !== -1 && $.inArray(sel, trialMtch) !== -1) {
-                    //sound.play();
+                    sound.play();
                     correct++;
                     calcScore();
                 }
@@ -728,9 +728,9 @@ function countClick(sel, parID) {
 function calcScore() {
     var tmp = 0;
     var timer = stopTime - stTime;
-    totTime += timer;
     timer = (timer / 1000);
     timer = Math.round(timer * 10) / 10;
+    totTime += timer;
     tmp = 4.0 - timer;
     
     if (tmp > 0) {
