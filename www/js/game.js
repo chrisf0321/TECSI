@@ -484,6 +484,7 @@ function imgSel() {
         $.mobile.changePage("#finish", {transition: "slide"});
         
         totPoints += points;
+        totTime = Math.round(totTime * 10) / 10;
         
         if (totPoints <= 9999999) {
             window.localStorage.setItem("points", totPoints);
