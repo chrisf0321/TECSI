@@ -712,6 +712,7 @@ function countClick(sel, parID) {
                 gamCnt++;
                 imgCnt = 0;
                 active = false;
+                totTime += (Math.round(((stopTime - stTime) / 1000) * 10) / 10);
                 if ($.inArray(prevSel, trialMtch) !== -1 && $.inArray(sel, trialMtch) !== -1) {
                     sound.play();
                     correct++;
@@ -731,7 +732,6 @@ function calcScore() {
     var timer = stopTime - stTime;
     timer = (timer / 1000);
     timer = Math.round(timer * 10) / 10;
-    totTime += timer;
     tmp = 4.0 - timer;
     
     if (tmp > 0) {
