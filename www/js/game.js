@@ -67,7 +67,6 @@ $("a").on(TOUCH_START, function() {
 });
 
 $(document).on('pagebeforeshow', '#home', function() {
-    StatusBar.show();
     if (window.localStorage.getItem("score") === null) {
         window.localStorage.setItem("score", 0);
         window.localStorage.setItem("right", 0);
@@ -482,6 +481,7 @@ function imgSel() {
     else {
         var oldScore = window.localStorage.getItem("score");
         var totPoints = parseFloat(window.localStorage.getItem("points"));
+        var totGames = parseInt(window.localStorage.getItem("games")) + 1;
         
         $("#gamScr").html("<h2>Game Score: " + points + "</h2>");
         $.mobile.changePage("#finish", {transition: "slide"});
@@ -489,6 +489,7 @@ function imgSel() {
         totPoints += points;
         totTime = Math.round(totTime * 10) / 10;
         
+        window.localStorage.setItem("games", totGames);
         if (totPoints <= 9999999) {
             window.localStorage.setItem("points", totPoints);
         }
