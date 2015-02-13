@@ -67,10 +67,12 @@ $("a").on(TOUCH_START, function() {
 });
 
 $(document).on('pagebeforeshow', '#home', function() {
+    StatusBar.show();
     if (window.localStorage.getItem("score") === null) {
         window.localStorage.setItem("score", 0);
         window.localStorage.setItem("right", 0);
         window.localStorage.setItem("time", 0);
+        window.localStorage.setItem("games", 0);
         window.localStorage.setItem("points", 0);
     }
     else if (window.localStorage.getItem("score") > 0) {
@@ -78,6 +80,7 @@ $(document).on('pagebeforeshow', '#home', function() {
         $("#scr").html("<h3>Score: " + window.localStorage.getItem("score") + "</h3>");
         $("#cor").html("<h3>Correct: " + window.localStorage.getItem("right") + "</h3>");
         $("#tim").html("<h3>Total Time: " + window.localStorage.getItem("time") + "</h3>");
+        $("#gam").html("<h3>Games Played: " + window.localStorage.getItem("games") + "</h3>");
         $("#totPts").html("<h3>Overall Points: " + window.localStorage.getItem("points") + "</h3>");
     }
 });
