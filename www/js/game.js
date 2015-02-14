@@ -76,7 +76,7 @@ $(document).on('pagebeforeshow', '#home', function() {
         $("#scr").html("<h3>High Score: " + window.localStorage.getItem("score") + "</h3>");
         $("#gam").html("<h3>Games Played: " + window.localStorage.getItem("games") + "</h3>");
         $("#totPts").html("<h3>Overall Points: " + window.localStorage.getItem("points") + "</h3>");
-        $("#avg").html("<h3>Average Points: " + window.localStorage.getItem("right") + "</h3>");
+        $("#avg").html("<h3>Average Points: " + window.localStorage.getItem("average") + "</h3>");
     }
 });
 
