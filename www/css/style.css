@@ -11,7 +11,7 @@ body {
 }
 
 h4 {
-    color: #252525;
+    text-align: center;
 }
 
 li {
@@ -45,7 +45,9 @@ img{
 }
 
 .ui-bar {
-    padding: 5px;
+    padding: 0px;
+    -webkit-margin-before: .1em;
+    -webkit-margin-after: .1em;
 }
 
 .ui-grid-a {

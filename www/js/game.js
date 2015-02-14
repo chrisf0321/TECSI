@@ -19,8 +19,6 @@ var fnLoop = false;
 var fnLand = false;
 var inst = false;
 var inst2 = false;
-var correct = 0;
-var totTime = 0;
 
 var aArry = ["img/a1.jpg", "img/a2.jpg", "img/a3.jpg", "img/a4.jpg", "img/a5.jpg", "img/a6.jpg", "img/a7.jpg",
             "img/a8.jpg", "img/a9.jpg", "img/a10.jpg", "img/a11.jpg", "img/a12.jpg", "img/a13.jpg", "img/a14.jpg",
@@ -69,18 +67,16 @@ $("a").on(TOUCH_START, function() {
 $(document).on('pagebeforeshow', '#home', function() {
     if (window.localStorage.getItem("score") === null) {
         window.localStorage.setItem("score", 0);
-        window.localStorage.setItem("right", 0);
-        window.localStorage.setItem("time", 0);
         window.localStorage.setItem("games", 0);
         window.localStorage.setItem("points", 0);
+        window.localStorage.setItem("average", 0);
     }
     else if (window.localStorage.getItem("score") > 0) {
         $("#tot").html("<h2>Best Score: <a href='#popupDialog' style='text-decoration: none' data-rel='popup' data-position-to='window' data-transition='slideup'>" + window.localStorage.getItem("score") + "</a></h2>");
-        $("#scr").html("<h3>Score: " + window.localStorage.getItem("score") + "</h3>");
-        $("#cor").html("<h3>Correct: " + window.localStorage.getItem("right") + "</h3>");
-        $("#tim").html("<h3>Total Time: " + window.localStorage.getItem("time") + "</h3>");
+        $("#scr").html("<h3>High Score: " + window.localStorage.getItem("score") + "</h3>");
         $("#gam").html("<h3>Games Played: " + window.localStorage.getItem("games") + "</h3>");
         $("#totPts").html("<h3>Overall Points: " + window.localStorage.getItem("points") + "</h3>");
+        $("#avg").html("<h3>Average Points: " + window.localStorage.getItem("right") + "</h3>");
     }
 });
 
@@ -489,9 +485,12 @@ function imgSel() {
         totPoints += points;
         totTime = Math.round(totTime * 10) / 10;
         
+        var average = Math.round((totPoints / totGames) * 10) / 10;
+        
         window.localStorage.setItem("games", totGames);
         if (totPoints <= 9999999) {
             window.localStorage.setItem("points", totPoints);
+            window.localStorage.setItem("average", average);
         }
         else {
             window.localStorage.setItem("points", 9999999);
@@ -499,8 +498,6 @@ function imgSel() {
         
         if (oldScore < points) {
             window.localStorage.setItem("score", points);
-            window.localStorage.setItem("right", correct);
-            window.localStorage.setItem("time", totTime);
         }
     }
 }
@@ -716,10 +713,8 @@ function countClick(sel, parID) {
                 gamCnt++;
                 imgCnt = 0;
                 active = false;
-                totTime += (Math.round(((stopTime - stTime) / 1000) * 10) / 10);
                 if ($.inArray(prevSel, trialMtch) !== -1 && $.inArray(sel, trialMtch) !== -1) {
                     sound.play();
-                    correct++;
                     calcScore();
                 }
                 imgAnimate();
