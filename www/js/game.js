@@ -483,7 +483,6 @@ function imgSel() {
         $.mobile.changePage("#finish", {transition: "slide"});
         
         totPoints += points;
-        totTime = Math.round(totTime * 10) / 10;
         
         var average = Math.round((totPoints / totGames) * 10) / 10;
         
