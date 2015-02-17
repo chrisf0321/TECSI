@@ -17,7 +17,6 @@ var stopTime;
 var points = 0;
 var fnLoop = false;
 var fnLand = false;
-var hmLoop = false;
 var inst = false;
 var inst2 = false;
 
@@ -76,8 +75,7 @@ $("a").on(TOUCH_START, function() {
     }
 });
 
-$(document).on('pagebeforeshow', '#home', function() {
-    hmLoop = true;
+$(document).on('pagebeforeshow', '#home', function() {   
     if (window.localStorage.getItem("score") === null) {
         window.localStorage.setItem("score", 0);
         window.localStorage.setItem("curScore", 0);
@@ -85,14 +83,11 @@ $(document).on('pagebeforeshow', '#home', function() {
         window.localStorage.setItem("points", 0);
         window.localStorage.setItem("average", 0);
     }
-    else if (window.localStorage.getItem("score") > 0) {
-        $("#tot").html("<h2>Current Score: <a href='#popupDialog' style='text-decoration: none' data-rel='popup' data-position-to='window' data-transition='slideup'>" + window.localStorage.getItem("curScore") + "</a></h2>");
-        $("#scr").html("<h3>High Score: " + window.localStorage.getItem("score") + "</h3>");
-        $("#gam").html("<h3>Games Played: " + window.localStorage.getItem("games") + "</h3>");
-        $("#totPts").html("<h3>Overall Points: " + window.localStorage.getItem("points") + "</h3>");
-        $("#avg").html("<h3>Average Points: " + window.localStorage.getItem("average") + "</h3>");
-    }
-    aniHome();
+    $("#tot").html("<h2>Current Score: <a href='#popupDialog' style='text-decoration: none' data-rel='popup' data-position-to='window' data-transition='slideup'>" + window.localStorage.getItem("curScore") + "</a></h2>");
+    $("#scr").html("<h3>High Score: " + window.localStorage.getItem("score") + "</h3>");
+    $("#gam").html("<h3>Games Played: " + window.localStorage.getItem("games") + "</h3>");
+    $("#totPts").html("<h3>Overall Points: " + window.localStorage.getItem("points") + "</h3>");
+    $("#avg").html("<h3>Average Points: " + window.localStorage.getItem("average") + "</h3>");
 });
 
 $(document).on('pagebeforeshow', '#matches', function() {
@@ -314,31 +309,6 @@ function inAni2() {
         $('#inBlk3').css({'border': '1px solid blue'});       
         $('#ing2, #ing3, #ing4').css({'opacity': '0'});
     }, 3000);
-}
-
-function aniHome() {
-    $('#hm1').attr('src', bArry[Math.floor(Math.random() * bArry.length)]);
-    $('#hm1').css({'opacity': '0',
-                   'margin-left': '0'});
-    
-    var aniWd = (($(window).width() * .25) / 2) + 16 ;
-    
-    if (hmLoop) {
-        $('#hm1').animate
-            ({
-                'margin-left' : (((parseInt($('body').parent().css('width'))) / 2) - aniWd) + 'px',
-                'opacity' : '100'
-            }, 800).promise().done(function() {
-                setTimeout(function() {
-                    $('#hm1').animate ({
-                        'opacity' : '0',
-                        'margin-left' : parseInt($('body').parent().css('width')) + 'px'
-                    }, 600).promise().done(function() {
-                        aniHome();
-                    });
-                }, 1200);
-            });
-        }
 }
 
 function setFnImg() {
