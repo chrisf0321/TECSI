@@ -2,8 +2,14 @@ h2 {
 	text-align: center;
 }
 
-#hmTitle {
+#hmImg {
     text-align: center;
+}
+
+#hm1 {
+    width: 50%;
+    padding-left: 25%;
+    padding-right: 25%;
 }
 
 .ui-btn-left {
