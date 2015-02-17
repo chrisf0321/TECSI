@@ -2,6 +2,22 @@ h2 {
 	text-align: center;
 }
 
+#hmTitle {
+    text-align: center;
+}
+
+#hm1 {
+    width: 25%;
+}
+
+.ui-btn-left {
+    margin-left: 10px !important;
+}
+
+.ui-btn-right {
+    margin-right: 10px !important;
+}
+
 h5 {
 	text-align: center;
 }
