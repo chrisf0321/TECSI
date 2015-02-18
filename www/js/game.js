@@ -19,6 +19,8 @@ var fnLoop = false;
 var fnLand = false;
 var inst = false;
 var inst2 = false;
+var played;
+var reloadCnt = 5;
 
 var aArry = ["img/a1.jpg", "img/a2.jpg", "img/a3.jpg", "img/a4.jpg", "img/a5.jpg", "img/a6.jpg", "img/a7.jpg",
             "img/a8.jpg", "img/a9.jpg", "img/a10.jpg", "img/a11.jpg", "img/a12.jpg", "img/a13.jpg", "img/a14.jpg",
@@ -82,12 +84,15 @@ $(document).on('pagebeforeshow', '#home', function() {
         window.localStorage.setItem("games", 0);
         window.localStorage.setItem("points", 0);
         window.localStorage.setItem("average", 0);
+        window.localStorage.setItem("played", 1);
+        window.localStorage.setItem("reloads", 3);
     }
     $("#tot").html("<h2>Current Score: <a href='#popupDialog' style='text-decoration: none' data-rel='popup' data-position-to='window' data-transition='slideup'>" + window.localStorage.getItem("curScore") + "</a></h2>");
     $("#scr").html("<h3>High Score: " + window.localStorage.getItem("score") + "</h3>");
     $("#gam").html("<h3>Games Played: " + window.localStorage.getItem("games") + "</h3>");
     $("#totPts").html("<h3>Overall Points: " + window.localStorage.getItem("points") + "</h3>");
     $("#avg").html("<h3>Average Points: " + window.localStorage.getItem("average") + "</h3>");
+    played = parseInt(window.localStorage.getItem("played"));
 });
 
 $(document).on('pagebeforeshow', '#matches', function() {
@@ -426,22 +431,56 @@ Array.prototype.shuffle = function() {
     }
 };
 
+function matchReload() {
+    if (reloadCnt > 0) {
+        $('img').css({'opacity': '0'});
+        reloadCnt--;
+        played = 1;
+        matchGen();
+        imgDelay();
+    }
+}
+
 function matchGen() {
     var mCnt = 0;
+    if (reloadCnt === 5) {
+        reloadCnt = parseInt(window.localStorage.getItem("reloads"));
+    }
     
-    matchArry[0] = aArry[Math.floor(Math.random() * aArry.length)];
-    matchArry[1] = dArry[Math.floor(Math.random() * dArry.length)];
-    matchArry[2] = bArry[Math.floor(Math.random() * bArry.length)];
-    matchArry[3] = eArry[Math.floor(Math.random() * eArry.length)];
-    matchArry[4] = cArry[Math.floor(Math.random() * cArry.length)];
+    $('#rld').text("Reloads Left:  " + reloadCnt);
     
-    while(mCnt < 1) {
-        var cImg = cArry[Math.floor(Math.random() * cArry.length)];
+    if (played === 1 && reloadCnt > -1) {
+        matchArry[0] = aArry[Math.floor(Math.random() * aArry.length)];
+        matchArry[1] = dArry[Math.floor(Math.random() * dArry.length)];
+        matchArry[2] = bArry[Math.floor(Math.random() * bArry.length)];
+        matchArry[3] = eArry[Math.floor(Math.random() * eArry.length)];
+        matchArry[4] = cArry[Math.floor(Math.random() * cArry.length)];
+    
+        while(mCnt < 1) {
+            var cImg = cArry[Math.floor(Math.random() * cArry.length)];
 
-        if (cImg !== matchArry[4]) {
-            matchArry[5] = cImg;
-            mCnt++;
+            if (cImg !== matchArry[4]) {
+                matchArry[5] = cImg;
+                mCnt++;
+            }
         }
+        played = 0;
+        window.localStorage.setItem("mtch1", matchArry[0]);
+        window.localStorage.setItem("mtch2", matchArry[1]);
+        window.localStorage.setItem("mtch3", matchArry[2]);
+        window.localStorage.setItem("mtch4", matchArry[3]);
+        window.localStorage.setItem("mtch5", matchArry[4]);
+        window.localStorage.setItem("mtch6", matchArry[5]);
+        window.localStorage.setItem("reloads", reloadCnt);
+        window.localStorage.setItem("played", played);
+    }
+    else {
+        matchArry[0] = window.localStorage.getItem("mtch1");
+        matchArry[1] = window.localStorage.getItem("mtch2");
+        matchArry[2] = window.localStorage.getItem("mtch3");
+        matchArry[3] = window.localStorage.getItem("mtch4");
+        matchArry[4] = window.localStorage.getItem("mtch5");
+        matchArry[5] = window.localStorage.getItem("mtch6");
     }
     
     showMatch();
@@ -485,6 +524,8 @@ function imgSel() {
         imgDelay();
     }
     else {
+        played = 1;
+        reloadCnt = 3;
         var oldScore = window.localStorage.getItem("score");
         var totPoints = parseFloat(window.localStorage.getItem("points"));
         var totGames = parseInt(window.localStorage.getItem("games")) + 1;
@@ -497,6 +538,8 @@ function imgSel() {
         
         var average = Math.round((totPoints / totGames) * 10) / 10;
         
+        window.localStorage.setItem("played", played);
+        window.localStorage.setItem("reloads", reloadCnt);
         window.localStorage.setItem("curScore", points);
         window.localStorage.setItem("games", totGames);
         if (totPoints <= 9999999) {
