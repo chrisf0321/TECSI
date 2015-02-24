@@ -94,11 +94,11 @@ $(document).on('pagebeforeshow', '#home', function() {
         window.localStorage.setItem("played", 1);
         window.localStorage.setItem("reloads", 3);
     }
-    $("#tot").html("<h2>Current Score: <a href='#popupDialog' style='text-decoration: none' data-rel='popup' data-position-to='window' data-transition='slideup'>" + window.localStorage.getItem("curScore") + "</a></h2>");
-    $("#scr").html("<h3>High Score: " + window.localStorage.getItem("score") + "</h3>");
-    $("#gam").html("<h3>Games Played: " + window.localStorage.getItem("games") + "</h3>");
-    $("#totPts").html("<h3>Overall Points: " + window.localStorage.getItem("points") + "</h3>");
-    $("#avg").html("<h3>Average Points: " + window.localStorage.getItem("average") + "</h3>");
+    $("#tot").html("<h2><span data-translate='Current Score: '>Current Score: </span><a href='#popupDialog' style='text-decoration: none' data-rel='popup' data-position-to='window' data-transition='slideup'>" + window.localStorage.getItem("curScore") + "</a></h2>");
+    $("#scr").html("<h3><span data-translate='High Score: '>High Score: </span>" + window.localStorage.getItem("score") + "</h3>");
+    $("#gam").html("<h3><span data-translate='Games Played: '>Games Played: </span>" + window.localStorage.getItem("games") + "</h3>");
+    $("#totPts").html("<h3><span data-translate='Overall Points: '>Overall Points: </span>" + window.localStorage.getItem("points") + "</h3>");
+    $("#avg").html("<h3><span data-translate='Average Points: '>Average Points: </span>" + window.localStorage.getItem("average") + "</h3>");
     played = parseInt(window.localStorage.getItem("played"));
     
     transLang();
