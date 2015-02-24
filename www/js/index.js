@@ -36,4 +36,6 @@ function appLogic() {
     }, 2000);
     
     var lang = window.navigator.language.split("-")[0];
+    var translate = $("<script type='text/javascript' src='langs/" + lang +".js'>");
+    $("head").append(translate); 
 }
