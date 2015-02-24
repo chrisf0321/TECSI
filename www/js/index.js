@@ -35,5 +35,6 @@ function appLogic() {
         navigator.splashscreen.hide();
     }, 2000);
     
-    window.alert(window.navigator.language);
+    var lang = window.navigator.language.split("-")[0];
+    window.alert(lang);
 }
