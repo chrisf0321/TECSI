@@ -36,5 +36,4 @@ function appLogic() {
     }, 2000);
     
     var lang = window.navigator.language.split("-")[0];
-    window.alert(lang);
 }

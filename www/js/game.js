@@ -77,6 +77,13 @@ $("a").on(TOUCH_START, function() {
     }
 });
 
+function transLang() {
+    $("span[data-translate]").html(function() {
+        var trans = $(this).attr("data-translate");
+        return language[trans];
+    });
+}
+
 $(document).on('pagebeforeshow', '#home', function() {   
     if (window.localStorage.getItem("score") === null) {
         window.localStorage.setItem("score", 0);
@@ -93,6 +100,8 @@ $(document).on('pagebeforeshow', '#home', function() {
     $("#totPts").html("<h3>Overall Points: " + window.localStorage.getItem("points") + "</h3>");
     $("#avg").html("<h3>Average Points: " + window.localStorage.getItem("average") + "</h3>");
     played = parseInt(window.localStorage.getItem("played"));
+    
+    transLang();
 });
 
 $(document).on('pagebeforeshow', '#matches', function() {
