@@ -1,5 +1,5 @@
 var language = {
-    "Tec-Tec" : "Olá"
+    "Tec-Tec" : "Tec-Tec"
 };
 
 
