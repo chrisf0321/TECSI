@@ -34,4 +34,6 @@ function appLogic() {
     setTimeout(function() {
         navigator.splashscreen.hide();
     }, 2000);
+    
+    window.alert(window.navigator.language);
 }
