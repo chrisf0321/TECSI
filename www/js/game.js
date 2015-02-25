@@ -255,7 +255,7 @@ function setFnImg() {
 
 function fnSwitcher() {
     var num = 0;
-    var imgNum;
+    //var imgNum;
  
     if(fnLoop) {
         num = Math.floor(Math.random() * 4);
@@ -380,7 +380,7 @@ function matchReload() {
 function matchGen() {
     var mCnt = 0;
     
-    $('#rld').text("Reloads Left:  " + reloadCnt);
+    $('#rld').text(language["rld"] + reloadCnt);
     
     if (played === 1 && reloadCnt > -1) {
         matchArry[0] = aArry[Math.floor(Math.random() * aArry.length)];
@@ -447,7 +447,7 @@ function imgSel() {
         var totPoints = parseFloat(window.localStorage.getItem("points"));
         var totGames = parseInt(window.localStorage.getItem("games")) + 1;
         
-        $("#gamScr").html("<h2>Game Score: " + points + "</h2>");
+        $("#gamScr").html("<h2>" + language["gmScr"] + points + "</h2>");
         $.mobile.changePage("#finish", {transition: "slide"});
         
         totPoints += points;

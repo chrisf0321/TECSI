@@ -40,7 +40,9 @@ var dArry = ["img/d1.jpg", "img/d2.jpg", "img/d3.jpg", "img/d4.jpg", "img/d5.jpg
 var eArry = ["img/e1.jpg", "img/e2.jpg", "img/e3.jpg", "img/e4.jpg"];
 
 var language = {
-    "Tec-Tec" : "Tec-Tec"
+    "Tec-Tec" : "Tec-Tec",
+    "rld" : "Reloads Left: ",
+    "gmScr" : "Game Score: "
 };
 
 
