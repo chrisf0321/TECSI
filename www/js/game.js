@@ -20,7 +20,7 @@ var fnLand = false;
 var inst = false;
 var inst2 = false;
 var played;
-var reloadCnt = 5;
+var reloadCnt = 3;
 var matchArry = [];
 var trialMtch = [];
 
@@ -68,6 +68,7 @@ $(document).on('pagebeforeshow', '#home', function() {
         matchArry[3] = window.localStorage.getItem("mtch4");
         matchArry[4] = window.localStorage.getItem("mtch5");
         matchArry[5] = window.localStorage.getItem("mtch6");
+        reloadCnt = parseInt(window.localStorage.getItem("reloads"));
     }
 });
 
@@ -335,6 +336,15 @@ function showMatch() {
     $("#mImg5").attr('src', matchArry[4]);
     $("#mImg6").attr('src', matchArry[5]);
     
+    window.localStorage.setItem("mtch1", matchArry[0]);
+    window.localStorage.setItem("mtch2", matchArry[1]);
+    window.localStorage.setItem("mtch3", matchArry[2]);
+    window.localStorage.setItem("mtch4", matchArry[3]);
+    window.localStorage.setItem("mtch5", matchArry[4]);
+    window.localStorage.setItem("mtch6", matchArry[5]);
+    window.localStorage.setItem("reloads", reloadCnt);
+    window.localStorage.setItem("played", played);
+    
 }
 
 function imgDelay() {
@@ -369,9 +379,6 @@ function matchReload() {
 
 function matchGen() {
     var mCnt = 0;
-    if (reloadCnt === 5) {
-        reloadCnt = parseInt(window.localStorage.getItem("reloads"));
-    }
     
     $('#rld').text("Reloads Left:  " + reloadCnt);
     
@@ -391,14 +398,6 @@ function matchGen() {
             }
         }
         played = 0;
-        window.localStorage.setItem("mtch1", matchArry[0]);
-        window.localStorage.setItem("mtch2", matchArry[1]);
-        window.localStorage.setItem("mtch3", matchArry[2]);
-        window.localStorage.setItem("mtch4", matchArry[3]);
-        window.localStorage.setItem("mtch5", matchArry[4]);
-        window.localStorage.setItem("mtch6", matchArry[5]);
-        window.localStorage.setItem("reloads", reloadCnt);
-        window.localStorage.setItem("played", played);
     }
     
     showMatch();
