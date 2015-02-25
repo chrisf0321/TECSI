@@ -87,6 +87,7 @@ var language = {
     "matches" : "cerillas",
     "start" : "Iniciar Juego!",
     "rld" : "Recargas: ",
-    "gmScr" : "Juego Puntaje: "
+    "gmScr" : "Juego Puntaje: ",
+    "pair" : "par "
 };
 
