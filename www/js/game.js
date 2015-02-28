@@ -44,6 +44,7 @@ function transLang() {
 
 function langChg(lngs) {
     played = 1;
+    reloadCnt = 3;
     $("script[src='langs/" + lngs + ".js']").remove();
     var translate = $("<script type='text/javascript' src='langs/" + lngs +".js'>");
     $("body").append(translate);
