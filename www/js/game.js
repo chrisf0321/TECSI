@@ -42,11 +42,13 @@ function transLang() {
     });
 }
 
+var oldLng = "en";
 function langChg(lngs) {
     played = 1;
     reloadCnt = 3;
-    $("script[src='langs/" + lngs + ".js']").remove();
+    $("script[src='langs/" + oldLng + ".js']").remove();
     var translate = $("<script type='text/javascript' src='langs/" + lngs +".js'>");
+    oldLng = lngs;
     $("body").append(translate);
     transLang();
 }
@@ -68,7 +70,7 @@ $(document).on('pagebeforeshow', '#home', function() {
     $("#avg").html("<h3><span data-translate='Average Points: '>Average Points: </span>" + window.localStorage.getItem("average") + "</h3>");
     played = parseInt(window.localStorage.getItem("played"));
     
-    //transLang();
+    transLang();
     
     if (played === 0) {
         matchArry[0] = window.localStorage.getItem("mtch1");
