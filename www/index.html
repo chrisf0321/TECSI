@@ -21,6 +21,7 @@
             <div data-role="page" id="home" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <h1 class="ui-title"><span data-translate="Tec-Tec">Tec-Tec</span></h1>
+                    <a href="#popupSettings" style='text-decoration: none' data-rel='popup' data-position-to='window' data-transition="slideup" class="ui-btn ui-icon-gear ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
                     <div id="hmImg">
@@ -44,6 +45,13 @@
                         <div id="avg"></div>
                         <a href="#" class="ui-btn ui-corner-all ui-shadow" data-rel="back" data-transition="slidedown"><span data-translate="back">Back</span></a>
                     </div>
+                </div>
+                <div data-role="popup" id="popupSettings" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="min-width:290px;">	
+                    <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                        <li data-role="list-divider">Languages</li>
+                        <li><a href="#" onclick="langChg('en')" data-rel="back" data-transition="slidedown">English</a></li>
+                        <li><a href="#" onclick="langChg('es')" data-rel="back" data-transition="slidedown">Spanish</a></li>
+                    </ul>
                 </div>
             </div>
             <div data-role="page" id="about" data-theme="b">
@@ -72,7 +80,7 @@
                     <ul>
                         <li><span data-translate="res7">Your local psychiatric hospital's walk-in clinic</span></li>
                         <li><span data-translate="res8">Your local hospital's emergency room</span></li>
-                        <li><span data-translate="res9">Your local urgent care center or clinical</span></li>
+                        <li><span data-translate="res9">Your local urgent care center or clinic</span></li>
                         <li><a onclick="window.open('http://www.suicide.org/international-suicide-hotlines.html', '_blank', 'location=yes')"><span data-translate="res10">International suicide hotlines</span></a></li>
                         <li><a onclick="window.open('http://www.iasp.info/resources/Crisis_Centres/', '_blank', 'location=yes')"><span data-translate="res11">International suicide crisis center information</span></a></li>
                         <li><a onclick="window.open('http://www.befrienders.org/', '_blank', 'location=yes')"><span data-translate="res12">International suicide crisis lines</span></a></li>
@@ -99,7 +107,7 @@
                             <img src="img/c2.jpg"/>
                         </div>
                         <div class="ui-block-d">
-                            <img src="img/e1.jpg"/>
+                            <img id="r1"/>
                         </div>
                     </div>
                 </div>
@@ -128,7 +136,7 @@
                             <img src="img/b1.jpg"/>
                         </div>
                         <div class="ui-block-b">
-                            <img src="img/e1.jpg"/>
+                            <img id="r2"/>
                         </div>
                     </div>
                     <h4 class="ui-bar"><span data-translate="pair">Pair </span>3</h4>
@@ -163,7 +171,7 @@
                             <img src="img/c2.jpg"/>
                         </div>
                         <div id="inBlk2" class="ui-block-d">
-                            <img src="img/e1.jpg"/>
+                            <img id="r3"/>
                         </div>
                     </div>
                 </div>
@@ -188,7 +196,7 @@
                             <img id="ing3" src="img/c2.jpg"/>
                         </div>
                         <div id="inBlk4" class="ui-block-d">
-                            <img id="ing4" src="img/e1.jpg"/>
+                            <img id="ing4" />
                         </div>
                     </div>
                 </div>
@@ -213,7 +221,7 @@
                             <img src="img/c2.jpg"/>
                         </div>
                         <div class="ui-block-d">
-                            <img src="img/e1.jpg"/>
+                            <img id="r4"/>
                         </div>
                         <div class="ui-block-a">
                             <img src="img/b2.jpg"/>
@@ -360,11 +368,7 @@
         <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="langs/en.js"></script>
         <script type="text/javascript" src="js/game.js"></script>
-        <script type="text/javascript">
-            var lang = window.navigator.language.split("-")[0];
-            var translate = $("<script type='text/javascript' src='langs/" + lang +".js'>");
-            $("head").append(translate);
-        </script>
     </body>
 </html>

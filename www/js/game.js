@@ -42,6 +42,14 @@ function transLang() {
     });
 }
 
+function langChg(lngs) {
+    played = 1;
+    $("script[src='langs/" + lngs + ".js']").remove();
+    var translate = $("<script type='text/javascript' src='langs/" + lngs +".js'>");
+    $("body").append(translate);
+    transLang();
+}
+
 $(document).on('pagebeforeshow', '#home', function() {   
     if (window.localStorage.getItem("score") === null) {
         window.localStorage.setItem("score", 0);
@@ -59,7 +67,7 @@ $(document).on('pagebeforeshow', '#home', function() {
     $("#avg").html("<h3><span data-translate='Average Points: '>Average Points: </span>" + window.localStorage.getItem("average") + "</h3>");
     played = parseInt(window.localStorage.getItem("played"));
     
-    transLang();
+    //transLang();
     
     if (played === 0) {
         matchArry[0] = window.localStorage.getItem("mtch1");

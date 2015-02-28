@@ -39,10 +39,58 @@ var dArry = ["img/d1.jpg", "img/d2.jpg", "img/d3.jpg", "img/d4.jpg", "img/d5.jpg
 
 var eArry = ["img/e1.jpg", "img/e2.jpg", "img/e3.jpg", "img/e4.jpg"];
 
+$('#r1, #r2, #r3, #r4, #ing4').attr('src', eArry[0]);
+
 var language = {
     "Tec-Tec" : "Tec-Tec",
     "rld" : "Reloads Left: ",
-    "gmScr" : "Game Score: "
+    "gmScr" : "Game Score: ",
+    "Play Game!" : "Play Game!",
+    "How to Play" : "How to Play",
+    "Crisis Support" : "Crisis Support",
+    "Disclaimer" : "Disclaimer",
+    "Current Score: " : "Current Score: ",
+    "High Score: " : "High Score: ",
+    "Games Played: " : "Games Played: ",
+    "Overall Points: " : "Overall Points: ",
+    "Average Points: " : "Average Points: ",
+    "gmStats" : "Game Stats",
+    "back" : "Back",
+    "Resources" : "Resources",
+    "res1" : "If you are feeling suicidal, please contact:",
+    "res2" : "American Users",
+    "res3" : "Suicide Prevention Hotline: ",
+    "res4" : "HopeLine Suicide Hotline: ",
+    "res5" : "Call ",
+    "res6" : "American and Non-American Users",
+    "res7" : "Your local psychiatric hospital's walk-in clinic",
+    "res8" : "Your local hospital's emergency room",
+    "res9" : "Your local urgent care center or clinic",
+    "res10" : "International suicide hotlines",
+    "res11" : "International suicide crisis center information",
+    "res12" : "International suicide crisis lines",
+    "inst" : "Instructions",
+    "inst1" : "Tec-Tec is a matching game",
+    "inst2" : "The goal is to match one image/word with another image/word within a grid like this:",
+    "inst4" : "How do you know what to match?",
+    "inst5" : "At the start of each game, you're given three pairs of images/words, like this:",
+    "inst7" : "How do you match pairs?",
+    "inst8" : "One of those pairs will appear on each game screen.  There are ",
+    "inst9" : " total game screens.",
+    "inst10" : "Tap on the members of the pair as quickly as possible.  The ",
+    "inst11" : "faster",
+    "inst12" : " and more ",
+    "inst13" : "accurate",
+    "inst14" : " you are, the more points you get.",
+    "inst16" : "Tec-Tec gets more challenging",
+    "inst17" : "Image/word options start to black out after you select the first image/word:",
+    "inst18" : "Then Tec-Tec gets even more challenging",
+    "inst19" : "The grid doubles in size:",
+    "finish" : "Finished!",
+    "main" : "Main Menu",
+    "matches" : "Matches",
+    "start" : "Start Game!",
+    "pair" : "Pair "
 };
 
 
