@@ -23,6 +23,7 @@ var played;
 var reloadCnt = 3;
 var matchArry = [];
 var trialMtch = [];
+var oldLng;
 
 $("a").on(TOUCH_START, function() {
     var linkID = $(this).attr('id');
@@ -42,45 +43,54 @@ function transLang() {
     });
 }
 
-var oldLng = "en";
 function langChg(lngs) {
-    played = 1;
-    reloadCnt = 3;
-    $("script[src='langs/" + oldLng + ".js']").remove();
-    var translate = $("<script type='text/javascript' src='langs/" + lngs +".js'>");
-    oldLng = lngs;
-    $("body").append(translate);
-    transLang();
+    if (lngs !== oldLng) {
+        played = 1;
+        $("script[src='langs/" + oldLng + ".js']").remove();
+        var translate = $("<script type='text/javascript' src='langs/" + lngs +".js'>");
+        oldLng = lngs;
+        window.localStorage.setItem("lang", oldLng);
+        $("body").append(translate);
+        transLang();
+        getUserData();
+    }
 }
 
-$(document).on('pagebeforeshow', '#home', function() {   
+function getUserData() {
+    if (window.localStorage.getItem(oldLng) !== null) {
+        var player = JSON.parse(window.localStorage.getItem(oldLng));
+        played = player.played;
+        reloadCnt = player.reloads;
+        matchArry[0] = player.mtch1;
+        matchArry[1] = player.mtch2;
+        matchArry[2] = player.mtch3;
+        matchArry[3] = player.mtch4;
+        matchArry[4] = player.mtch5;
+        matchArry[5] = player.mtch6;
+    }
+    else {
+        played = 1;
+        reloadCnt = 3;
+    }
+}
+
+$(document).on('pagebeforeshow', '#home', function() { 
     if (window.localStorage.getItem("score") === null) {
         window.localStorage.setItem("score", 0);
         window.localStorage.setItem("curScore", 0);
         window.localStorage.setItem("games", 0);
         window.localStorage.setItem("points", 0);
         window.localStorage.setItem("average", 0);
-        window.localStorage.setItem("played", 1);
-        window.localStorage.setItem("reloads", 3);
+        window.localStorage.setItem("lang", "en");
     }
     $("#tot").html("<h2><span data-translate='Current Score: '>Current Score: </span><a href='#popupDialog' style='text-decoration: none' data-rel='popup' data-position-to='window' data-transition='slideup'>" + window.localStorage.getItem("curScore") + "</a></h2>");
     $("#scr").html("<h3><span data-translate='High Score: '>High Score: </span>" + window.localStorage.getItem("score") + "</h3>");
     $("#gam").html("<h3><span data-translate='Games Played: '>Games Played: </span>" + window.localStorage.getItem("games") + "</h3>");
     $("#totPts").html("<h3><span data-translate='Overall Points: '>Overall Points: </span>" + window.localStorage.getItem("points") + "</h3>");
     $("#avg").html("<h3><span data-translate='Average Points: '>Average Points: </span>" + window.localStorage.getItem("average") + "</h3>");
-    played = parseInt(window.localStorage.getItem("played"));
     
     transLang();
-    
-    if (played === 0) {
-        matchArry[0] = window.localStorage.getItem("mtch1");
-        matchArry[1] = window.localStorage.getItem("mtch2");
-        matchArry[2] = window.localStorage.getItem("mtch3");
-        matchArry[3] = window.localStorage.getItem("mtch4");
-        matchArry[4] = window.localStorage.getItem("mtch5");
-        matchArry[5] = window.localStorage.getItem("mtch6");
-        reloadCnt = parseInt(window.localStorage.getItem("reloads"));
-    }
+    getUserData();
 });
 
 $(document).on('pagebeforeshow', '#matches', function() {
@@ -266,7 +276,6 @@ function setFnImg() {
 
 function fnSwitcher() {
     var num = 0;
-    //var imgNum;
  
     if(fnLoop) {
         num = Math.floor(Math.random() * 4);
@@ -347,15 +356,23 @@ function showMatch() {
     $("#mImg5").attr('src', matchArry[4]);
     $("#mImg6").attr('src', matchArry[5]);
     
-    window.localStorage.setItem("mtch1", matchArry[0]);
-    window.localStorage.setItem("mtch2", matchArry[1]);
-    window.localStorage.setItem("mtch3", matchArry[2]);
-    window.localStorage.setItem("mtch4", matchArry[3]);
-    window.localStorage.setItem("mtch5", matchArry[4]);
-    window.localStorage.setItem("mtch6", matchArry[5]);
-    window.localStorage.setItem("reloads", reloadCnt);
-    window.localStorage.setItem("played", played);
+    mtchStore(oldLng, played, reloadCnt);   
+}
+
+function mtchStore(lng, play, reload) {
+    var lastMatch = {
+        lang : lng,
+        played : play,
+        reloads : reload,
+        mtch1 : matchArry[0],
+        mtch2 : matchArry[1],
+        mtch3 : matchArry[2],
+        mtch4 : matchArry[3],
+        mtch5 : matchArry[4],
+        mtch6 : matchArry[5]
+    };
     
+    window.localStorage.setItem(lng, JSON.stringify(lastMatch));   
 }
 
 function imgDelay() {
@@ -466,8 +483,6 @@ function imgSel() {
         
         var average = Math.round((totPoints / totGames) * 10) / 10;
         
-        window.localStorage.setItem("played", played);
-        window.localStorage.setItem("reloads", reloadCnt);
         window.localStorage.setItem("curScore", points);
         window.localStorage.setItem("games", totGames);
         if (totPoints <= 9999999) {
@@ -481,6 +496,7 @@ function imgSel() {
         if (oldScore < points) {
             window.localStorage.setItem("score", points);
         }
+        mtchStore(oldLng, played, reloadCnt);
     }
 }
 
