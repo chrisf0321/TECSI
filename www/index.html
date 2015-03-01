@@ -43,12 +43,14 @@
                         <a href="#" class="ui-btn ui-corner-all ui-shadow" data-rel="back" data-transition="slidedown"><span data-translate="back">Back</span></a>
                     </div>
                 </div>
-                <div data-role="popup" id="popupSettings" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="min-width:290px;">	
-                    <ul data-role="listview" data-inset="true" style="min-width:210px;">
-                        <li id="hmImg" data-role="list-divider">Languages</li>
-                        <li data-icon="false"><a href="#" onclick="langChg('en')" data-rel="back" data-transition="slidedown">English</a></li>
-                        <li data-icon="false"><a href="#" onclick="langChg('es')" data-rel="back" data-transition="slidedown">Español</a></li>
-                        <li data-icon="false"><a href="#" onclick="langChg('pt')" data-rel="back" data-transition="slidedown">Português</a></li>
+                <div data-role="popup" id="popupSettings" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="min-width:200px;">
+                    <div data-role="header" data-theme="b">
+                        <h1>Language</h1>
+                    </div>
+                    <ul data-role="listview" data-inset="true" style="min-width:200px;">
+                        <li data-icon="false"><a id="hmImg" href="#" onclick="langChg('en')" data-rel="back" data-transition="slidedown">English</a></li>
+                        <li data-icon="false"><a id="hmImg1" href="#" onclick="langChg('es')" data-rel="back" data-transition="slidedown">Español</a></li>
+                        <li data-icon="false"><a id="hmImg2" href="#" onclick="langChg('pt')" data-rel="back" data-transition="slidedown">Português</a></li>
                     </ul>
                 </div>
             </div>

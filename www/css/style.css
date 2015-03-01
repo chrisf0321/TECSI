@@ -2,7 +2,7 @@ h2 {
 	text-align: center;
 }
 
-#hmImg {
+#hmImg, #hmImg1, #hmImg2 {
     text-align: center;
 }
 
@@ -51,6 +51,8 @@ li {
 .ui-title {
     font-size: 1.3em !important;
     padding: .4em 0 !important;
+    margin-right: 10% !important;
+    margin-left: 10% !important;
 }
 
 img{
