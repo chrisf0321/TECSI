@@ -32,10 +32,10 @@ var dArry = ["img/d1.jpg", "img/d2.jpg", "img/d3.jpg", "img/d4.jpg", "img/d5.jpg
             "img/d15.jpg", "img/d16.jpg", "img/d17.jpg", "img/d18.jpg", "img/d19.jpg", "img/d20.jpg", "img/d21.jpg",
             "img/d22.jpg", "img/d23.jpg", "img/d24.jpg", "img/d25.jpg", "img/d26.jpg", "img/d27.jpg", "img/d28.jpg",
             "img/d29.jpg", "img/d30.jpg", "img/d31.jpg", "img/d32.jpg", "img/d33.jpg", "img/d34.jpg", "img/d35.jpg", 
-            "img/d36.jpg", "img/d37.jpg", "img/d38.jpg", "img/d39.jpg", "img/d40.jpg", "img/d41.jpg", "img/d42.jpg", 
-            "img/d43.jpg", "img/d44.jpg", "img/d45.jpg", "img/d46.jpg", "img/d47.jpg", "img/d48.jpg", "img/d49.jpg", 
-            "img/d50.jpg", "img/d51.jpg", "img/d52.jpg", "img/d53.jpg", "img/d54.jpg", "img/d55.jpg", "img/d56.jpg", 
-            "img/d57.jpg"];
+            "img/d36.jpg", "img/d37.jpg", "img/d38.jpg", "img/hi/d39.jpg", "img/hi/d40.jpg", "img/hi/d41.jpg", "img/hi/d42.jpg", 
+            "img/hi/d43.jpg", "img/hi/d44.jpg", "img/hi/d45.jpg", "img/hi/d46.jpg", "img/hi/d47.jpg", "img/hi/d48.jpg", "img/hi/d49.jpg", 
+            "img/hi/d50.jpg", "img/hi/d51.jpg", "img/hi/d52.jpg", "img/hi/d53.jpg", "img/hi/d54.jpg", "img/hi/d55.jpg", "img/hi/d56.jpg", 
+            "img/hi/d57.jpg"];
 
 var eArry = ["img/hi/e1.jpg", "img/hi/e2.jpg", "img/hi/e3.jpg", "img/hi/e4.jpg"];
 
