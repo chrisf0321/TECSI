@@ -17,7 +17,6 @@
         <title>Tec-Tec</title>
     </head>
     <body>
-        <div class="app">
             <div data-role="page" id="home" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
                     <a href="#popupSettings" style='text-decoration: none' data-rel='popup' data-position-to='window' data-transition="slideup" class="ui-btn ui-btn-right ui-icon-gear ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
@@ -97,9 +96,9 @@
             </div>
             <div data-role="page" id="inst" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
-                    <a href="#home" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1><span data-translate="inst">Instructions</span></h1>
-                    <a href="#inst2" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
+                    <a href="#inst2" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
                     <h1 id="in1"><strong><span data-translate="inst1">Tec-Tec is a matching game</span></strong></h1>
@@ -122,9 +121,9 @@
             </div>
             <div data-role="page" id="inst2" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
-                    <a href="#inst" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <a href="#inst" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1><span data-translate="inst">Instructions</span></h1>
-                    <a href="#inst3" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
+                    <a href="#inst3" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
                     <h1 id="in3"><strong><span data-translate="inst4">How do you know what to match?</span></strong></h1>
@@ -160,9 +159,9 @@
             </div>
             <div data-role="page" id="inst3" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
-                    <a href="#inst2" onclick="inst=false" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <a href="#inst2" onclick="inst=false" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1><span data-translate="inst">Instructions</span></h1>
-                    <a href="#inst4" onclick="inst=false" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
+                    <a href="#inst4" onclick="inst=false" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
                     <h1 id="in5"><strong><span data-translate="inst7">How do you match pairs?</span></strong></h1>
@@ -186,9 +185,9 @@
             </div>
             <div data-role="page" id="inst4" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
-                    <a href="#inst3" onclick="inst2=false" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <a href="#inst3" onclick="inst2=false" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1><span data-translate="inst">Instructions</span></h1>
-                    <a href="#inst5" onclick="inst2=false" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
+                    <a href="#inst5" onclick="inst2=false" data-transition="slide" class="ui-btn ui-icon-arrow-r ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
                     <h1 id="in8"><strong><span data-translate="inst16">Tec-Tec gets more challenging</span></strong></h1>
@@ -211,9 +210,9 @@
             </div>
             <div data-role="page" id="inst5" data-theme="b">
                 <div data-role="header" data-position="fixed" data-tap-toggle="false">
-                    <a href="#inst4" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
+                    <a href="#inst4" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
                     <h1><span data-translate="inst">Instructions</span></h1>
-                    <a href="#home" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
+                    <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-right ui-btn-icon-notext"></a>
                 </div>
                 <div data-role="content">
                     <h1 id="in10"><strong><span data-translate="inst18">Then Tec-Tec gets even more challenging</span></strong></h1>
@@ -371,7 +370,6 @@
                         </div>
                     </div>
             </div>
-        </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
