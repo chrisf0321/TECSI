@@ -94,6 +94,7 @@ $(document).on('pagebeforeshow', '#home', function() {
 });
 
 $(document).on('pagebeforeshow', '#matches', function() {
+    $("#inst, #inst2, #inst3, #inst4, #inst5").remove();
     $('.ui-block-a, .ui-block-b').removeClass('inst_mod');
     $('img').css({'opacity': '0'});
     sizeA();
