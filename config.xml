@@ -36,6 +36,7 @@
    
     <gap:plugin name="org.apache.cordova.device"/>
     <gap:plugin name="org.apache.cordova.device-motion"/>
+    <gap:plugin name="cordova-plugin-whitelist"/>
     <gap:plugin name="org.apache.cordova.device-orientation"/>
     <gap:plugin name="org.apache.cordova.geolocation"/>
     <gap:plugin name="org.apache.cordova.globalization"/>
@@ -68,6 +69,6 @@
     <gap:splash gap:platform="ios" height="1024" src="www/res/screen/ios/screen-ipad-portrait.png" width="768"/>
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024"/>
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg"/>
-    <access origin="*"/>
-    <access origin="tel:*" launch-external="yes"/>
+    <allow-navigation href="*"/>
+    <allow-navigation href="tel:*" launch-external="yes"/>
 </widget>
