@@ -31,6 +31,8 @@ function appLogic() {
         e.preventDefault();
     }
     
+    window.cache.clear(success, error);
+    
     setTimeout(function() {
         navigator.splashscreen.hide();
     }, 2000); 
