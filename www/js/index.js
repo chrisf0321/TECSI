@@ -24,7 +24,9 @@ $(document).one("mobileinit", function(){
 $.when(gapReady, jqmReady).then(appLogic);
 
 // App Logic -- add back disable and hide splash screen.
-function appLogic() {  
+function appLogic() { 
+    var success;
+    var error;
     
     document.addEventListener("backbutton", onBackKeyDown, false);
     function onBackKeyDown(e) {

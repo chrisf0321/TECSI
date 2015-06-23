@@ -75,6 +75,8 @@ function getUserData() {
 }
 
 $(document).on('pagebeforeshow', '#home', function() { 
+    var success;
+    var error;
     window.cache.clear(success, error);
     
     if (window.localStorage.getItem("score") === null) {
