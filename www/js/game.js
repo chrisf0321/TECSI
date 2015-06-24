@@ -509,6 +509,8 @@ function resetGame() {
     cCnt = 0;
     totTime = 0;
     correct = 0;
+    matchArry = [];
+    trialMtch = [];
     active = false;
     hide = false;
     fnLoop = false;
@@ -543,7 +545,9 @@ function aList(arry) {
             }
         }       
     }
-
+    
+    tempArry = [];
+    
     arry.shuffle();
     trialMtch[0] = $.inArray(matchArry[0], arry);
     trialMtch[1] = $.inArray(matchArry[1], arry);
@@ -563,7 +567,8 @@ function aList(arry) {
         $("#img6").attr('src', arry[5]);
         $("#img7").attr('src', arry[6]);
         $("#img8").attr('src', arry[7]);
-    }    
+    }  
+    delete arry;
 }
 
 function bList(arry) {
@@ -594,7 +599,9 @@ function bList(arry) {
             }
         }       
     }
-
+    
+    tempArry = [];
+    
     arry.shuffle();
     trialMtch[0] = $.inArray(matchArry[2], arry);
     trialMtch[1] = $.inArray(matchArry[3], arry);
@@ -614,7 +621,8 @@ function bList(arry) {
         $("#img6").attr('src', arry[5]);
         $("#img7").attr('src', arry[6]);
         $("#img8").attr('src', arry[7]);
-    }    
+    }  
+    delete arry;
 }
 
 function cList(arry) {
@@ -645,6 +653,8 @@ function cList(arry) {
             }
         }       
     }
+    
+    tempArry = [];
 
     arry.shuffle();
     trialMtch[0] = $.inArray(matchArry[4], arry);
@@ -665,7 +675,8 @@ function cList(arry) {
         $("#img6").attr('src', arry[5]);
         $("#img7").attr('src', arry[6]);
         $("#img8").attr('src', arry[7]);
-    }    
+    }   
+    delete arry;
 }
 
 function countClick(sel, parID) {
