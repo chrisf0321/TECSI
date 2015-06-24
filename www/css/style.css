@@ -24,6 +24,10 @@ h5 {
 	text-align: center;
 }
 
+html {
+    background-color: #252525;
+}
+
 body {
     background-color: #252525;
     margin: 0px;
