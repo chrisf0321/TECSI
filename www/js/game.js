@@ -96,7 +96,7 @@ $(document).on('pagebeforeshow', '#home', function() {
     dArry = [];
     eArry = [];
     setLang();
-    transLang();
+    //transLang();
     getUserData();
 });
 
