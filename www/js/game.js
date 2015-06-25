@@ -41,7 +41,6 @@ function transLang() {
         var trans = $(this).attr("data-translate");
         return language[trans];
     });
-    language = {};
 }
 
 function langChg(lngs) {
@@ -90,13 +89,7 @@ $(document).on('pagebeforeshow', '#home', function() {
     $("#totPts").html("<h3><span data-translate='Overall Points: '>Overall Points: </span>" + window.localStorage.getItem("points") + "</h3>");
     $("#avg").html("<h3><span data-translate='Average Points: '>Average Points: </span>" + window.localStorage.getItem("average") + "</h3>");
     
-    aArry = [];
-    bArry = [];
-    cArry = [];
-    dArry = [];
-    eArry = [];
-    setLang();
-    //transLang();
+    transLang();
     getUserData();
 });
 
@@ -108,7 +101,7 @@ $(document).on('pagebeforeshow', '#matches', function() {
     if (!audio) {
         setAudio();
     }
-    setImgs();
+
     matchGen();
     imgDelay();
     
@@ -180,8 +173,6 @@ $(window).on('orientationchange', function (e) {
 });
 
 $(document).on('pagebeforeshow', '#inst', function(){
-    setImgs();
-    setInst();
     sizeC();
 });
 
